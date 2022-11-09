@@ -1,5 +1,5 @@
-const { getVideoGames } = require("./utils");
-const { VideoGame, Genre } = require("../db");
+const { getVideoGames } = require("./utils")
+const { VideoGame } = require('../db')
 
 const getAllVideoGamesOrName = async (req, res) => {
     try {
@@ -25,9 +25,7 @@ const getVideoGameById = async (req, res) => {
         const allVideoGames = await getVideoGames();
         const { id } = req.params;
         if (id) {
-            let videoGameId = await allVideoGames.filter(
-                (videoGame) => videoGame.id == id
-            );
+            let videoGameId = await allVideoGames.filter((videoGame) => videoGame.id == id);
             videoGameId.length
                 ? res.status(200).send(videoGameId)
                 : res.status(404).send("Video Game Not Found!!!  🔴🔴😥😭");
@@ -39,14 +37,14 @@ const getVideoGameById = async (req, res) => {
 
 const createVideoGame = async (req, res) => {
     try {
-        let {
+        const {
             name,
             released,
             background_image,
             rating,
             platforms,
             description,
-            genres,
+            genres
         } = req.body;
 
         const newVideoGame = await VideoGame.create({
@@ -55,14 +53,11 @@ const createVideoGame = async (req, res) => {
             background_image,
             rating,
             platforms,
-            description
+            description,
+            genres
         });
 
-        let genresDB = await Genre.findAll({
-            where: { name: genres }
-        })
-
-        newVideoGame.addGenre(genresDB);
+        newVideoGame.addGenre(genres);
         res.status(200).send(" Video Game created!!! 🟢🟢😁😁");
         // .then((recipe) => recipe.addDiet(diets))
         // .then(res.send("Recipe created!!! 🟢🟢😁😁"))

@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+// Export a function that defines the model
+// Inject the connection to sequelize.
 module.exports = (sequelize) => {
-  // defino el modelo
+  // define Model
   sequelize.define(
     "videoGame",
     {
