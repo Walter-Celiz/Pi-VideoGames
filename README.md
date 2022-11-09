@@ -16,8 +16,7 @@
 
 ## Starting
 
-1.  Fork the repository
-2.  Clone the repository
+ Fork the repository or Clone the repository 
 
 Versions:
 
