@@ -1,14 +1,14 @@
 const { Router } = require("express");
 const router = Router();
 const {
-    getAllGamesOrName,
-    getGameById,
-    createGame,
+    getAllVideoGamesOrName,
+    getVideoGameById,
+    createVideoGame,
 } = require("../../controllers/videoGamesController");
 
 //all this routes start with "/videogames"
-router.get("/", getAllGamesOrName);
-router.get("/:id", getGameById);
-router.post("/create", createGame);
+router.get("/", getAllVideoGamesOrName);
+router.get("/:id", getVideoGameById);
+router.post("/create", createVideoGame);
 
 module.exports = router;
