@@ -1,6 +1,6 @@
-# Individual Project - Henry Videogames
+# Project - Videogames
 
-## Juani Arrigoni
+## Walter Celiz
 
 <p align="center">
   <img height="max" src="./videogame.png" />
