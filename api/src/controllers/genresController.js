@@ -16,9 +16,7 @@ const getAllGenres = async (req, res) => {
         })
         res.status(200).send(allGenres)
     } catch (error) {
-        // res.status(500).json({
-        //     msg: error.message
-        // })
+        return error
     }
 }
 
