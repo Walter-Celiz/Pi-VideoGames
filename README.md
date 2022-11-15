@@ -1,4 +1,4 @@
-# Project - Videogames
+# Project - Video Games
 
 ## Walter Celiz
 
