@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Cyberpunk;
+    src: url(../utils/fonts/Cyberpunk.otf);
+}
+
+.landingContainer {
+    display: flex;
+    justify-content: center;
+    background: url("../utils/img/landing.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    height: 95vh;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+
+.landing {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 17rem;
+}
+
+.landing__h2 {
+    color: rgb(206, 0, 225);
+    font-family: Cyberpunk;
+    font-size: 7rem;
+    text-shadow:
+        -3px -3px 3px rgb(18, 255, 1),
+        3px 1px 0px rgb(13, 5, 246),
+        -3px 3px 0px rgb(18, 255, 1),
+        3px -3px 0px rgb(13, 5, 246);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -13px
+}
+
+.landing__button {
+    background: yellow;
+    border: solid black 2px;
+    border-radius: 10%;
+    color: black;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 3rem;
+    padding: 0 1.7rem;
+}
+
+.landing__button:hover {
+    background: black;
+    color: yellow;
+    border: solid yellow 2px;
+    font-family: 'Franklin Gothic Medium';
+    cursor: pointer;
+}
