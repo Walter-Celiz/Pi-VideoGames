@@ -1,0 +1,33 @@
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+.navbarContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: yellow;
+    font-size: 3rem;
+    font-family: BlenderProBold;
+    padding: 0 1rem;
+}
+
+.navbar__div {
+    margin: 1rem 0.3rem;
+}
+
+.navbar__link:hover {
+    background: rgb(35, 18, 112);
+    color: rgb(219, 88, 136);
+    transition: 0.4s;
+    -webkit-text-stroke: 1px yellow;
+    border-radius: 10%;
+}

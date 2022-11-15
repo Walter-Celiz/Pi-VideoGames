@@ -3,6 +3,12 @@
     src: url(../utils/fonts/Cyberpunk.otf);
 }
 
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+
 .landingContainer {
     display: flex;
     justify-content: center;
@@ -25,7 +31,7 @@
 }
 
 .landing__h2 {
-    color: rgb(206, 0, 225);
+    color: rgb(181, 5, 197);
     font-family: Cyberpunk;
     font-size: 7rem;
     text-shadow:
@@ -39,19 +45,21 @@
 }
 
 .landing__button {
-    background: yellow;
-    border: solid black 2px;
+    background: black;
+    border: transparent;
     border-radius: 10%;
-    color: black;
-    font-family: 'Franklin Gothic Medium';
+    color: yellow;
+    font-family: BlenderProBold;
     font-size: 3rem;
     padding: 0 1.7rem;
 }
 
 .landing__button:hover {
-    background: black;
-    color: yellow;
-    border: solid yellow 2px;
-    font-family: 'Franklin Gothic Medium';
+    background: rgb(35, 18, 112);
+    color: rgb(219, 88, 136);
+    /* border: 1px solid yellow; */
+    transition: 0.4s;
+    -webkit-text-stroke: 1px yellow;
+    border-radius: 10%;
     cursor: pointer;
 }
