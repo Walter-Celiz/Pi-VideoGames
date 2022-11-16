@@ -12,7 +12,7 @@ export default function Navbar() {
                     </Link>
                 </div>
                 <div className="navbar__div">
-                    <Link className="navbar__link" to="/videogames/create">
+                    <Link className="navbar__link2" to="/videogames/create">
                         CREATE
                     </Link>
                 </div>

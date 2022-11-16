@@ -14,20 +14,31 @@
 
 .navbar__link {
     text-decoration: none;
-    color: yellow;
+    color: black;
+    background: rgb(203, 203, 203);
     font-size: 3rem;
     font-family: BlenderProBold;
     padding: 0 1rem;
+    clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 80%, 0 0);
 }
+
+.navbar__link2 {
+    text-decoration: none;
+    color: black;
+    background: rgb(75, 255, 32);
+    font-size: 3rem;
+    font-family: BlenderProBold;
+    padding: 0 0.5rem;
+    clip-path: polygon(100% 0%, 100% 80%, 90% 100%, 0% 100%, 0 0);
+}
+
 
 .navbar__div {
     margin: 1rem 0.3rem;
 }
 
-.navbar__link:hover {
-    background: rgb(35, 18, 112);
-    color: rgb(219, 88, 136);
+.navbar__link:hover,
+.navbar__link2:hover {
+    background: rgb(0, 240, 255);
     transition: 0.4s;
-    -webkit-text-stroke: 1px yellow;
-    border-radius: 10%;
 }

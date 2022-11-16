@@ -1,0 +1,66 @@
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+.cardContainer {
+    display: flex;
+    display: inline-block;
+    margin-bottom: 7rem;
+    margin-left: 5.5rem;
+}
+
+.card {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 485px;
+    border-left: solid rgb(252, 238, 10) 5px;
+    border-right: solid rgb(75, 255, 32) 5px;
+    border-bottom: transparent;
+    border-top: transparent;
+    clip-path: polygon(100% 0, 100% 100%, 5% 99%, 0 70%, 0 0);
+}
+
+.card__img {
+    width: auto;
+    height: 260px;
+    max-width: 100%;
+    max-height: 100%;
+    clip-path: polygon(100% 0, 100% 100%, 15% 100%, 0 80%, 0 0);
+    border-bottom: solid rgb(252, 238, 10) 5px;
+}
+
+.card__h3 {
+    color: white;
+    text-align: center;
+    font-family: BlenderProBold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: rgb(0, 240, 255);
+}
+
+.card__div__ul {
+    margin-top: -1rem;
+}
+
+.card__ul {
+    color: white;
+    font-family: BlenderProBold;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-right: 1.1rem;
+    text-align: center;
+}
+
+.card__li {
+    list-style: none;
+}
+
+.cardContainer:hover {
+    opacity: 70%;
+    transition: 0.2s;
+    transform: scale(1.03);
+}

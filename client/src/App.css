@@ -1,3 +1,15 @@
 body {
+    background: rgb(25, 16, 11);
+}
+
+body::-webkit-scrollbar {
+    width: 1.2rem;
+    background: rgb(46, 46, 46);
+}
+
+body::-webkit-scrollbar-thumb {
     background: black;
+    border-radius: 10px;
+    height: 6rem;
+    border: 2px solid gray;
 }
