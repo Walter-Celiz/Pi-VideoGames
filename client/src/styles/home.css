@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Cyberpunk;
+    src: url(../utils/fonts/Cyberpunk.otf);
+}
+
+
+.homeContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home__h2 {
+    justify-content: center;
+    align-items: center;
+    color: rgb(252, 238, 10);
+    font-family: Cyberpunk;
+    font-size: 4.5rem;
+    text-shadow:
+        -5px -5px 5px black,
+        5px 5px 0px black,
+        -5px 5px 0px black,
+        5px -5px 0px rgb(75, 255, 32);
+    margin-top: 1rem;
+    letter-spacing: -0.4rem;
+}

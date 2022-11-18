@@ -3,18 +3,23 @@
     src: url(../utils/fonts/Cyberpunk.otf);
 }
 
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+
 .landingContainer {
     display: flex;
     justify-content: center;
     background: url("../utils/img/landing.jpg");
-    background-position: center center;
+    background-position: right;
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: cover;
     height: 95vh;
     align-items: center;
     margin-top: 1rem;
-
 }
 
 .landing {
@@ -25,33 +30,30 @@
 }
 
 .landing__h2 {
-    color: rgb(206, 0, 225);
+    color: rgb(255, 242, 1);
     font-family: Cyberpunk;
     font-size: 7rem;
     text-shadow:
-        -3px -3px 3px rgb(18, 255, 1),
-        3px 1px 0px rgb(13, 5, 246),
-        -3px 3px 0px rgb(18, 255, 1),
-        3px -3px 0px rgb(13, 5, 246);
+        -5px -5px 5px black,
+        5px 5px 0px black,
+        -5px 5px 0px black,
+        5px -5px 0px rgb(75, 255, 32);
     text-align: center;
     margin-bottom: 2rem;
     letter-spacing: -13px
 }
 
 .landing__button {
-    background: yellow;
-    border: solid black 2px;
-    border-radius: 10%;
+    background: rgb(75, 255, 32);
     color: black;
-    font-family: 'Franklin Gothic Medium';
+    font-family: BlenderProBold;
     font-size: 3rem;
     padding: 0 1.7rem;
+    clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 80%, 0 0);
 }
 
 .landing__button:hover {
-    background: black;
-    color: yellow;
-    border: solid yellow 2px;
-    font-family: 'Franklin Gothic Medium';
+    background: rgb(0, 240, 255);
+    transition: 0.4s;
     cursor: pointer;
 }
