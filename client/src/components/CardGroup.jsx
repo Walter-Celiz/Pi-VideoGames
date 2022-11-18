@@ -23,7 +23,7 @@ export default function CardGroup({ currentVideoGames, allVideoGames }) {
             </div> */}
             <div className="cardGroup">
                 <div>
-                    {allVideoGames && allVideoGames.map(videoGame => <Card
+                    {allVideoGames?.map(videoGame => <Card
                         name={videoGame.name}
                         background_image={videoGame.background_image}
                         genres={videoGame.genres}

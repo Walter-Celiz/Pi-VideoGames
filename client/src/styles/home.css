@@ -6,12 +6,13 @@
 
 .homeContainer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .home {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .home__h2 {

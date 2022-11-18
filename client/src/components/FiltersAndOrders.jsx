@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 // Redux Actions
 import {
     getVideoGames,
-    filterByGenres,
+    filterByGenre,
     filterByCreated,
 } from "../redux/actions"
 
@@ -13,7 +13,6 @@ import {
 import "../styles/filters.css";
 
 export default function FiltersAndOrders() {
-
     // Redux Hooks 
     const dispatch = useDispatch();
     const allGenres = useSelector((state) => state.allGenres);
@@ -24,9 +23,9 @@ export default function FiltersAndOrders() {
         dispatch(getVideoGames());
     }
 
-    const handleFilterByGenres = (e) => {
+    const handleFilterByGenre = (e) => {
         e.preventDefault();
-        dispatch(filterByGenres(e.target.value))
+        dispatch(filterByGenre(e.target.value))
         // setCurrentPage(1)
     };
 
@@ -45,14 +44,15 @@ export default function FiltersAndOrders() {
                 </button>
 
                 {/* Filter By Genres */}
-                <select onChange={(e) => { handleFilterByGenres(e) }}>
-                    <option value="All">All Genres</option>
-                    {allGenres.map(genre => <option
-                        key={genre.name}
-                        value={genre.name}
-                    >
-                        {genre.name}
-                    </option>)}
+                <select onChange={(e) => { handleFilterByGenre(e) }}>
+                    <option value="all">All Genres</option>
+                    {allGenres.map((genres) => {
+                        return (
+                            <option key={genres.id} value={genres.name}>
+                                {genres.name}
+                            </option>
+                        );
+                    })}
                 </select>
 
                 {/* Filter by Created */}
