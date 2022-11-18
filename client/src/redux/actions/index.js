@@ -31,7 +31,6 @@ export function getGenres() {
 }
 
 export function filterByGenre(payload) {
-    console.log(payload);
     return {
         type: "FILTER_BY_GENRE",
         payload,
