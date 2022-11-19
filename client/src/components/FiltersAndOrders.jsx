@@ -1,19 +1,15 @@
-// Nodes
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux'
-
-// Redux Actions
 import {
     getVideoGames,
-    filterByGenre,
-    filterByCreated,
-} from "../redux/actions"
+    filterGenre,
+    filterCreated,
+    orderName,
+    orderRating,
+} from "../redux/actions";
+import "../styles/filtersAndOrders.css";
 
-// CSS 
-import "../styles/filters.css";
-
-export default function FiltersAndOrders() {
-    // Redux Hooks 
+export default function FiltersAndOrders({ setCurrentPage, setOrder }) {
     const dispatch = useDispatch();
     const allGenres = useSelector((state) => state.allGenres);
 
@@ -21,47 +17,65 @@ export default function FiltersAndOrders() {
     const handleReset = (e) => {
         e.preventDefault();
         dispatch(getVideoGames());
+        setCurrentPage(1)
     }
 
-    const handleFilterByGenre = (e) => {
+    const handleFilterGenre = (e) => {
         e.preventDefault();
-        dispatch(filterByGenre(e.target.value))
-        // setCurrentPage(1)
+        dispatch(filterGenre(e.target.value))
+        setCurrentPage(1)
     };
 
-    const handleFilterByCreated = (e) => {
+    const handleFilterCreated = (e) => {
         e.preventDefault();
-        dispatch(filterByCreated(e.target.value))
+        dispatch(filterCreated(e.target.value))
+        setCurrentPage(1)
     }
+
+    const handleSort = (e) => {
+        e.preventDefault();
+        dispatch(orderName(e.target.value))
+        setCurrentPage(1)
+        setOrder(e.target.value)
+    }
+
+    const handleRating = (e) => {
+        e.preventDefault();
+        dispatch(orderRating(e.target.value))
+        setCurrentPage(1)
+        setOrder(e.target.value)
+    };
 
     return (
         <div className="filtersContainer">
             <div className="filters">
-
-                {/* Reset Filters */}
-                <button onClick={(e) => { handleReset(e) }}>
-                    Reset
-                </button>
-
-                {/* Filter By Genres */}
-                <select onChange={(e) => { handleFilterByGenre(e) }}>
-                    <option value="all">All Genres</option>
-                    {allGenres.map((genres) => {
-                        return (
+                <div className="">
+                    <select className="filter1 filter1_bg2 filter1_mg filter1_bor" onChange={(e) => { handleFilterGenre(e) }}>
+                        <option value="all">All Genres</option>
+                        {allGenres.map(genres =>
                             <option key={genres.id} value={genres.name}>
                                 {genres.name}
-                            </option>
-                        );
-                    })}
-                </select>
-
-                {/* Filter by Created */}
-                <select onChange={(e) => { handleFilterByCreated(e) }}>
-                    <option value="all">All</option>
-                    <option value="api">Api</option>
-                    <option value="created">Created</option>
-                </select>
-
+                            </option>)}
+                    </select>
+                    <select className="filter1 filter1_bg filter1_mg" onChange={(e) => { handleFilterCreated(e) }}>
+                        <option value="all">All Video Games</option>
+                        <option value="api">Api Video Games</option>
+                        <option value="created">Creations</option>
+                    </select>
+                    <select className="filter1 filter1_bg filter1_mg" onChange={(e) => { handleSort(e) }}>
+                        <option value="ascAlph">A-Z</option>
+                        <option value="descAlph">Z-A</option>
+                    </select>
+                    <select className="filter1 filter1_bg filter1_mg filter1_bor2" onChange={(e) => { handleRating(e) }}>
+                        <option value="ascRat">+ Rating</option>
+                        <option value="descRat">- Rating</option>
+                    </select>
+                </div>
+                <div className="filter2">
+                    <button className="filter2_bg" onClick={(e) => { handleReset(e) }}>
+                        Reset
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -6,10 +6,6 @@ import { Link } from "react-router-dom";
 import "../styles/card.css";
 
 export default function Card({ id, name, background_image, genres }) {
-    // if (typeof genres[0] === 'object') {
-    //     genres = genres.map(el => el.name)
-    // }
-
     return (
         <div className="cardContainer">
             <div className="card">

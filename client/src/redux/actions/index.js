@@ -30,17 +30,30 @@ export function getGenres() {
     };
 }
 
-export function filterByGenre(payload) {
-    console.log(payload);
+export function filterGenre(payload) {
     return {
-        type: "FILTER_BY_GENRE",
+        type: "FILTER_GENRE",
         payload,
     };
 }
 
-export function filterByCreated(payload) {
+export function filterCreated(payload) {
     return {
-        type: "FILTER_BY_CREATED",
+        type: "FILTER_CREATED",
+        payload,
+    };
+}
+
+export function orderName(payload) {
+    return {
+        type: "ORDER_NAME",
+        payload,
+    };
+}
+
+export function orderRating(payload) {
+    return {
+        type: "ORDER_RATING",
         payload,
     };
 }
