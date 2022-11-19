@@ -21,7 +21,7 @@ function rootReducer(state = initialState, action) {
                 allGenres: action.payload,
             };
 
-        case "FILTER_BY_GENRE":
+        case "FILTER_GENRE":
             const allVideoGames = state.allVideoGames;
             const genresFilter = action.payload === "all"
                 ? allVideoGames
@@ -32,17 +32,51 @@ function rootReducer(state = initialState, action) {
                 allVideoGamesLoaded: genresFilter,
             };
 
-        case "FILTER_BY_CREATED":
+        case "FILTER_CREATED":
             const allVideoGames2 = state.allVideoGames;
             const filterByCreated = action.payload === "created"
                 ? allVideoGames2.filter((videoGame) => videoGame.created)
                 : allVideoGames2.filter((videoGame) => !videoGame.created);
-            console.log(filterByCreated);
             return {
                 ...state,
                 allVideoGamesLoaded: action.payload === "all"
                     ? state.allVideoGames
                     : filterByCreated
+            };
+
+        case "ORDER_NAME":
+            let sortName = action.payload === "ascAlph"
+                ? state.allVideoGamesLoaded.sort(function (a, b) {
+                    if (a.name > b.name) return 1;
+                    if (b.name > a.name) return -1;
+                    //if it is 0 the result is the same
+                    return 0;
+                })
+                : state.allVideoGamesLoaded.sort(function (a, b) {
+                    if (a.name > b.name) return -1;
+                    if (b.name > a.name) return 1;
+                    return 0;
+                });
+            return {
+                ...state,
+                allVideoGamesLoaded: sortName,
+            };
+
+        case "ORDER_RATING":
+            let sortRating = action.payload === "ascRat"
+                ? state.allVideoGamesLoaded.sort(function (a, b) {
+                    if (a.rating > b.rating) return 1;
+                    if (b.rating > a.rating) return -1;
+                    return 0;
+                })
+                : state.allVideoGamesLoaded.sort(function (a, b) {
+                    if (a.rating > b.rating) return -1;
+                    if (b.rating > a.rating) return 1;
+                    return 0;
+                });
+            return {
+                ...state,
+                videoGamesLoaded: sortRating,
             };
 
         default:
@@ -51,5 +85,3 @@ function rootReducer(state = initialState, action) {
 }
 
 export default rootReducer;
-
-/* min 01:07:30 */

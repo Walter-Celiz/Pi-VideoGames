@@ -1,0 +1,73 @@
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+.filtersContainer {
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter1 {
+    color: black;
+    padding: 0.3rem 0.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: BlenderProBold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.filter1:hover {
+    background: rgb(0, 240, 255);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.filter1_bg {
+    background: rgb(205, 205, 205);
+}
+
+.filter1_bg2 {
+    background: rgb(75, 255, 32);
+}
+
+.filter1_mg {
+    margin: 0 0.1rem;
+}
+
+.filter1_bor {
+    border-radius: 10px 0 0 10px;
+}
+
+.filter1_bor2 {
+    border-radius: 0 10px 10px 0;
+}
+
+.filter2 {
+    margin-top: 1.5rem;
+}
+
+.filter2_bg {
+    background: black;
+    color: yellow;
+    border: 1px solid yellow;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: BlenderProBold;
+    font-size: 1.3rem;
+    clip-path: polygon(16% 1%, 86% 0, 100% 17%, 100% 80%, 85% 100%, 18% 100%, 0 83%, 0 17%);
+    cursor: pointer;
+}
+
+.filter2:hover {
+    background: rgb(0, 240, 255);
+    transition: 0.4s;
+    cursor: pointer;
+}

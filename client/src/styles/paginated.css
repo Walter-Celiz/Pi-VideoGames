@@ -1,0 +1,23 @@
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+
+.paginatedContainer {
+    margin-bottom: 2rem;
+}
+
+.number {
+    background: transparent;
+    color: cyan;
+    font-family: BlenderProBold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 0.7rem;
+}
+
+.number:hover {
+    background: rgb(2, 126, 70);
+    border-radius: 30%;
+}
