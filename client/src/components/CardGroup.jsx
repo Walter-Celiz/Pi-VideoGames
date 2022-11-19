@@ -8,11 +8,12 @@ export default function CardGroup({ currentVideoGames }) {
             <div className="cardGroup">
                 <div>
                     {currentVideoGames?.map(videoGame => <Card
-                        name={videoGame.name}
-                        background_image={videoGame.background_image}
-                        genres={videoGame.genres}
-                        id={videoGame.id}
                         key={videoGame.id}
+                        id={videoGame.id}
+                        background_image={videoGame.background_image}
+                        name={videoGame.name}
+                        rating={videoGame.rating}
+                        genres={videoGame.genres}
                     />)}
                 </div>
             </div>

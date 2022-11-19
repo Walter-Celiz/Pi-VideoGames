@@ -21,6 +21,12 @@ function rootReducer(state = initialState, action) {
                 allGenres: action.payload,
             };
 
+        case "GET_VIDEOGAME_NAME":
+            return {
+                ...state,
+                allVideoGamesLoaded: action.payload,
+            };
+
         case "FILTER_GENRE":
             const allVideoGames = state.allVideoGames;
             const genresFilter = action.payload === "all"
@@ -76,7 +82,7 @@ function rootReducer(state = initialState, action) {
                 });
             return {
                 ...state,
-                videoGamesLoaded: sortRating,
+                allVideoGamesLoaded: sortRating,
             };
 
         default:
