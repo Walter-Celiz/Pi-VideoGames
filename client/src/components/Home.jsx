@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getVideoGames } from "../redux/actions";
 import Navbar from "./Navbar";
-import loading from "../utils/img/loading.gif"
+import Loading from "./Loading";
 import FiltersAndOrders from "./FiltersAndOrders";
 import CardGroup from "./CardGroup";
 import Paginated from "./Paginated";
@@ -11,23 +11,31 @@ import "../styles/home.css";
 
 export default function Home() {
     const dispatch = useDispatch();
-    const allVideoGames = useSelector((state) => state.allVideoGamesLoaded);
-
-    //Paginated
+    const videoGames = useSelector((state) => state.videoGamesLoaded);
 
     const [order, setOrder] = useState('') // eslint-disable-line
     const [currentPage, setCurrentPage] = useState(1);
     const [videoGamesPerPage, setVideoGamesPerPage] = useState(15); // eslint-disable-line
     const indexOfLastVideoGame = currentPage * videoGamesPerPage;
     const indexOfFirstVideoGame = indexOfLastVideoGame - videoGamesPerPage;
-    const currentVideoGames = allVideoGames.slice(
+    const currentVideoGames = videoGames.slice(
         indexOfFirstVideoGame,
         indexOfLastVideoGame
     );
 
-    // Set click number
-    const paginated = (pageNumber) => {
+    function paginated(pageNumber) {
         setCurrentPage(pageNumber);
+    }
+
+    function handleNext() {
+        let lastpage = Math.ceil(videoGames.length / videoGamesPerPage);
+        if (currentPage < lastpage) setCurrentPage(currentPage + 1);
+    };
+
+    function handlePrev() {
+        if (currentPage !== 1) {
+            setCurrentPage(currentPage - 1);
+        }
     };
 
     useEffect(() => {
@@ -40,24 +48,31 @@ export default function Home() {
             <div className="home">
                 <Navbar />
                 <h2 className="home__h2">VIDEO&nbsp;&nbsp;&nbsp;&nbsp;GAMES</h2>
-                {
-                    (!currentVideoGames.length)
-                        ? <img src={loading} alt='Loading...' />
-                        : <div className="home">
-                            <SearchBar />
-                            <FiltersAndOrders
-                                setCurrentPage={setCurrentPage}
-                                setOrder={setOrder}
-                            />
-                            <Paginated
-                                videoGamesPerPage={videoGamesPerPage}
-                                allVideoGames={allVideoGames.length}
-                                paginated={paginated}
-                                currentPage={currentPage}
-                            />
-                            <CardGroup currentVideoGames={currentVideoGames} />
-                        </div>
-                }
+                <div className="home">
+                    <SearchBar
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                    <FiltersAndOrders
+                        setCurrentPage={setCurrentPage}
+                        setOrder={setOrder}
+                    />
+                    {
+                        (!currentVideoGames.length)
+                            ? <Loading />
+                            : <div>
+                                <Paginated
+                                    videoGamesPerPage={videoGamesPerPage}
+                                    videoGames={videoGames.length}
+                                    paginated={paginated}
+                                    currentPage={currentPage}
+                                    handleNext={handleNext}
+                                    handlePrev={handlePrev}
+                                />
+                                <CardGroup currentVideoGames={currentVideoGames} />
+                            </div>
+                    }
+                </div>
             </div>
         </div>
     );

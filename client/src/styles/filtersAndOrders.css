@@ -4,7 +4,7 @@
 }
 
 .filtersContainer {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: flex;
 }
 
@@ -32,10 +32,12 @@
 
 .filter1_bg {
     background: rgb(205, 205, 205);
+    outline: transparent;
 }
 
 .filter1_bg2 {
     background: rgb(75, 255, 32);
+    outline: transparent;
 }
 
 .filter1_mg {
@@ -56,8 +58,8 @@
 
 .filter2_bg {
     background: black;
-    color: yellow;
-    border: 1px solid yellow;
+    color: rgb(252, 238, 10);
+    border: 1px solid rgb(252, 238, 10);
     text-align: center;
     text-transform: uppercase;
     font-family: BlenderProBold;

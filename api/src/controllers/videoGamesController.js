@@ -3,10 +3,10 @@ const { VideoGame } = require('../db')
 
 const getAllVideoGamesOrName = async (req, res) => {
     try {
-        const allVideoGames = await getVideoGames();
-        const { name } = req.query;
+        let allVideoGames = await getVideoGames();
+        let { name } = req.query;
         if (name) {
-            let videoGameName = await allVideoGames.filter((videoGame) =>
+            let videoGameName = allVideoGames.filter((videoGame) =>
                 videoGame.name.toLowerCase().includes(name.toLowerCase())
             );
             videoGameName.length
@@ -22,10 +22,10 @@ const getAllVideoGamesOrName = async (req, res) => {
 
 const getVideoGameById = async (req, res) => {
     try {
-        const allVideoGames = await getVideoGames();
-        const { id } = req.params;
+        let allVideoGames = await getVideoGames();
+        let { id } = req.params;
         if (id) {
-            let videoGameId = await allVideoGames.filter((videoGame) => videoGame.id == id);
+            let videoGameId = allVideoGames.filter((videoGame) => videoGame.id == id);
             videoGameId.length
                 ? res.status(200).send(videoGameId)
                 : res.status(404).send("Video Game Not Found!!!  🔴🔴😥😭");
@@ -35,9 +35,9 @@ const getVideoGameById = async (req, res) => {
     }
 };
 
-const createVideoGame = async (req, res) => {
+const postVideoGame = async (req, res) => {
     try {
-        const {
+        let {
             name,
             released,
             background_image,
@@ -47,7 +47,7 @@ const createVideoGame = async (req, res) => {
             genres
         } = req.body;
 
-        const newVideoGame = await VideoGame.create({
+        let newVideoGame = await VideoGame.create({
             name,
             released,
             background_image,
@@ -59,15 +59,13 @@ const createVideoGame = async (req, res) => {
 
         newVideoGame.addGenre(genres);
         res.status(200).send(" Video Game created!!! 🟢🟢😁😁");
-        // .then((recipe) => recipe.addDiet(diets))
-        // .then(res.send("Recipe created!!! 🟢🟢😁😁"))
     } catch (error) {
-        res.status(404).send(error + " #createVideoGame fail!!! 🔴🔴😥😭");
+        res.status(404).send(error + " #postVideoGame fail!!! 🔴🔴😥😭");
     }
 };
 
 module.exports = {
     getAllVideoGamesOrName,
     getVideoGameById,
-    createVideoGame,
+    postVideoGame,
 };

@@ -3,19 +3,24 @@ import "../styles/paginated.css";
 
 export default function Paginated({
     videoGamesPerPage,
-    allVideoGames,
+    videoGames,
     paginated,
     currentPage,
+    handlePrev,
+    handleNext,
 }) {
     const pageNumber = [];
 
-    for (let i = 1; i <= Math.ceil(allVideoGames / videoGamesPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(videoGames / videoGamesPerPage); i++) {
         pageNumber.push(i);
     }
 
     return (
         <div className="paginatedContainer">
             <div className="paginated">
+                <button className="prev" onClick={() => handlePrev()}>
+                    {"<"}
+                </button>
                 {pageNumber?.map((number) => {
                     if (number === currentPage) {
                         return (
@@ -39,6 +44,9 @@ export default function Paginated({
                         );
                     }
                 })}
+                <button className="next" onClick={() => handleNext()}>
+                    {">"}
+                </button>
             </div>
         </div>
     );

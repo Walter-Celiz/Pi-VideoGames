@@ -1,26 +1,26 @@
 const { getGenresApi } = require("./utils")
 const { Genre } = require('../db')
 
-const getAllGenres = async (req, res) => {
+const getGenres = async (req, res) => {
     try {
-        const genres = await getGenresApi()
-        for (const genre of genres) {
+        let genresApi = await getGenresApi()
+        for (const genre of genresApi) {
             await Genre.findOrCreate({
                 where: {
                     name: genre.name
                 }
             })
         }
-        const allGenres = await Genre.findAll({
+        let genres = await Genre.findAll({
             attributes: ['id', 'name']
         })
-        res.status(200).send(allGenres)
+        res.status(200).send(genres)
     } catch (error) {
         return error
     }
 }
 
 module.exports = {
-    getAllGenres
+    getGenres
 }
 

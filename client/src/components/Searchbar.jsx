@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux"; // eslint-disable-line
 import { getVideoGameName } from "../redux/actions";
 import "../styles/searchBar.css";
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
 
     function handleInputChange(e) {
         e.preventDefault();
         setInput(e.target.value);
+        setCurrentPage(1);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        setInput("");
         if (!input.length) {
             alert("Search not Found");
         } else if (typeof input === "string") {
@@ -24,6 +24,8 @@ export default function SearchBar() {
         } else {
             alert("Search not Found");
         }
+        setCurrentPage(1);
+        setInput("");
     }
 
     return (
