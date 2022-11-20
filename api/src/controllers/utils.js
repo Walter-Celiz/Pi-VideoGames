@@ -20,12 +20,10 @@ const getApiVideoGames = async () => {
                 rating: videoGame.rating,
                 platforms: videoGame.platforms.map((platform) => platform.name),
                 description: videoGame.description,
-                genres: videoGame.genres.map((genre) => genre.name),
-
+                genres: videoGame.genres.map((genre) => genre.name)
             }));
             totalVideoGames = [...totalVideoGames, ...videoGames];
         }
-
         return totalVideoGames;
     } catch (error) {
         console.log(error + " #getApiVideoGames fail!!! 🔴🔴😥😭");
