@@ -5,9 +5,17 @@
 
 .paginatedContainer {
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
-.number {
+.paginated {
+    display: flex;
+}
+
+.number,
+.prev,
+.next {
     background: transparent;
     color: cyan;
     font-family: BlenderProBold;
@@ -16,8 +24,10 @@
     padding: 0 0.7rem;
 }
 
-.number:hover {
-    /* background: rgb(110, 27, 167); */
-    background: rgb(160, 27, 170);
+.number:hover,
+.prev:hover,
+.next:hover {
+    background: rgb(252, 238, 10);
+    color: black;
     border-radius: 30%;
 }

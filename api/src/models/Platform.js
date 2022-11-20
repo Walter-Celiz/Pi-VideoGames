@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
     // define Model
     sequelize.define(
-        "genre",
+        "platfor",
         {
             name: {
                 type: DataTypes.STRING,

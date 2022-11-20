@@ -1,11 +1,11 @@
 const axios = require("axios");
 require("dotenv").config();
 const { KEY } = process.env;
-const { VideoGame, Genre } = require("../db");
+const { VideoGame, Genre, Platfor } = require("../db");
 
 const getApiVideoGames = async () => {
     try {
-        const pages = 5;
+        let pages = 5;
         let totalVideoGames = [];
         let url = "";
 
@@ -18,15 +18,12 @@ const getApiVideoGames = async () => {
                 released: videoGame.released,
                 background_image: videoGame.background_image,
                 rating: videoGame.rating,
-                platforms: videoGame.platforms.map((el) => el.platform.name),
+                platforms: videoGame.platforms.map((platform) => platform.name),
                 description: videoGame.description,
-                genres: videoGame.genres
-                    ? videoGame.genres.map((genre) => genre.name)
-                    : "Undefined",
+                genres: videoGame.genres.map((genre) => genre.name)
             }));
             totalVideoGames = [...totalVideoGames, ...videoGames];
         }
-
         return totalVideoGames;
     } catch (error) {
         console.log(error + " #getApiVideoGames fail!!! 🔴🔴😥😭");
@@ -36,24 +33,24 @@ const getApiVideoGames = async () => {
 const getDbVideoGames = async () => {
     try {
         let videoGames = await VideoGame.findAll({
-            include: {
+            include: [{
                 model: Genre,
-                attributes: ["name"],
+                attributes: ["name"]
             },
+            {
+                model: Platfor,
+                attributes: ["name"],
+            }]
         });
         return videoGames.map((videoGame) => ({
             id: videoGame.id,
             name: videoGame.name,
             released: videoGame.released,
-            background_image: videoGame.background_image
-                ? videoGame.background_image
-                : "https://www.softzone.es/app/uploads-softzone.es/2020/03/Programaci%C3%B3n-Videojuegos.jpg",
+            background_image: videoGame.background_image,
             rating: videoGame.rating,
-            platforms: videoGame.platforms,
+            platforms: videoGame.platforms.map((platform) => platform.name),
             description: videoGame.description,
-            genres: videoGame.genres
-                ? videoGame.genres.map((genre) => genre.name)
-                : "Undefined",
+            genres: videoGame.genres.map((genre) => genre.name),
             created: videoGame.created,
         }));
     } catch (error) {
@@ -63,7 +60,7 @@ const getDbVideoGames = async () => {
 
 const getVideoGames = async () => {
     try {
-        const [Api, DB] = await Promise.all([
+        let [Api, DB] = await Promise.all([
             getApiVideoGames(),
             getDbVideoGames(),
         ]);
@@ -73,12 +70,10 @@ const getVideoGames = async () => {
     }
 };
 
-const getVideoGameIdApi = async (id) /* id */ => {
+const getSpecificGame = async (id) => {
     try {
-        const apiCall = await axios.get(
-            `https://api.rawg.io/api/games/${id}?key=${KEY}`
-        );
-        const videoGameId = await apiCall.data.results.map((videoGame) => ({
+        let apiCall = await axios.get(`https://api.rawg.io/api/games/${id}?key=${KEY}`);
+        let videoGameId = await apiCall.data.results.map((videoGame) => ({
             name: videoGame.name,
             description: videoGame.description,
             released: videoGame.released,
@@ -95,10 +90,8 @@ const getVideoGameIdApi = async (id) /* id */ => {
 
 const getGenresApi = async () => {
     try {
-        const apiCall = await axios.get(
-            `https://api.rawg.io/api/genres?key=${KEY}`
-        );
-        const genresApi = await apiCall.data.results.map((genre) => {
+        let apiCall = await axios.get(`https://api.rawg.io/api/genres?key=${KEY}`);
+        let genresApi = await apiCall.data.results.map((genre) => {
             return {
                 id: genre.id,
                 name: genre.name,
@@ -110,8 +103,24 @@ const getGenresApi = async () => {
     }
 };
 
+const getPlatformsApi = async () => {
+    try {
+        let apiCall = await axios.get(`https://api.rawg.io/api/platforms?key=${KEY}`);
+        let platformsApi = await apiCall.data.results.map((platform) => {
+            return {
+                id: platform.id,
+                name: platform.name,
+            };
+        });
+        return platformsApi;
+    } catch (error) {
+        console.log(error + " #getPlatformsApi fail!!! 🔴🔴😥😭");
+    }
+};
+
 module.exports = {
     getVideoGames,
-    getVideoGameIdApi,
+    getSpecificGame,
     getGenresApi,
+    getPlatformsApi
 };

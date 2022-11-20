@@ -5,34 +5,34 @@
 
 .searchBar {
     margin-bottom: 1rem;
-    margin-top: 0.5rem;
 }
 
 .searchBar__input {
     background: transparent;
-    color: rgb(218, 29, 231);
+    color: rgb(255, 242, 1);
     font-family: BlenderProBold;
     font-size: 1.3rem;
     text-transform: uppercase;
-    border-top: 1px solid rgb(160, 27, 170);
-    border-bottom: 1px solid rgb(160, 27, 170);
-    border-left: 1px solid rgb(160, 27, 170);
+    border-top: 1px solid rgb(255, 242, 1);
+    border-bottom: 1px solid rgb(255, 242, 1);
+    border-left: 1px solid rgb(255, 242, 1);
     border-right: transparent;
     border-radius: 10px 0 0 10px;
+    padding-left: 1rem;
 }
 
 .searchBar__input:focus-visible {
-    outline: rgb(160, 27, 170);
+    outline: rgb(255, 242, 1);
 }
 
 .searchBar__input2 {
     background: transparent;
-    color: rgb(160, 27, 170);
+    color: rgb(255, 242, 1);
     font-family: BlenderProBold;
     font-size: 1.1rem;
-    border-top: 1px solid rgb(160, 27, 170);
-    border-bottom: 1px solid rgb(160, 27, 170);
-    border-right: 1px solid rgb(160, 27, 170);
+    border-top: 1px solid rgb(255, 242, 1);
+    border-bottom: 1px solid rgb(255, 242, 1);
+    border-right: 1px solid rgb(255, 242, 1);
     border-left: transparent;
     border-radius: 0 10px 10px 0;
     cursor: pointer;

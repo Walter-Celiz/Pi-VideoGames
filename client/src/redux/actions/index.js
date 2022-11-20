@@ -44,31 +44,75 @@ export function getVideoGameName(name) {
     };
 }
 
-export function filterGenre(payload) {
-    return {
-        type: "FILTER_GENRE",
-        payload,
+export function getPlatforms() {
+    return async function (dispatch) {
+        try {
+            let platforms = await axios.get("http://localhost:3001/platforms");
+            return dispatch({
+                type: "GET_PLATFORMS",
+                payload: platforms.data,
+            });
+        } catch (error) {
+            console.log(error);
+        }
     };
+}
+
+export function postVideoGame(body) {
+    return async function (dispatch) {
+        try {
+            let videoGame = await axios.post(`http://localhost:3001/videogames/create`, body);
+            return dispatch({
+                type: "POST_VIDEOGAME",
+                payload: videoGame.data,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+}
+
+export function filterGenre(payload) {
+    try {
+        return {
+            type: "FILTER_GENRE",
+            payload,
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export function filterCreated(payload) {
-    return {
-        type: "FILTER_CREATED",
-        payload,
-    };
+    try {
+        return {
+            type: "FILTER_CREATED",
+            payload,
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export function orderName(payload) {
-    return {
-        type: "ORDER_NAME",
-        payload,
-    };
+    try {
+        return {
+            type: "ORDER_NAME",
+            payload,
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export function orderRating(payload) {
-    return {
-        type: "ORDER_RATING",
-        payload,
-    };
+    try {
+        return {
+            type: "ORDER_RATING",
+            payload,
+        }
+    } catch (error) {
+        console.log();
+    }
 }
 
