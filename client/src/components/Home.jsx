@@ -6,6 +6,7 @@ import loading from "../utils/img/loading.gif"
 import FiltersAndOrders from "./FiltersAndOrders";
 import CardGroup from "./CardGroup";
 import Paginated from "./Paginated";
+import SearchBar from "./Searchbar";
 import "../styles/home.css";
 
 export default function Home() {
@@ -14,9 +15,9 @@ export default function Home() {
 
     //Paginated
 
-    const [order, setOrder] = useState('')// eslint-disable-line
+    const [order, setOrder] = useState('') // eslint-disable-line
     const [currentPage, setCurrentPage] = useState(1);
-    const [videoGamesPerPage, setVideoGamesPerPage] = useState(15);// eslint-disable-line
+    const [videoGamesPerPage, setVideoGamesPerPage] = useState(15); // eslint-disable-line
     const indexOfLastVideoGame = currentPage * videoGamesPerPage;
     const indexOfFirstVideoGame = indexOfLastVideoGame - videoGamesPerPage;
     const currentVideoGames = allVideoGames.slice(
@@ -43,6 +44,7 @@ export default function Home() {
                     (!currentVideoGames.length)
                         ? <img src={loading} alt='Loading...' />
                         : <div className="home">
+                            <SearchBar />
                             <FiltersAndOrders
                                 setCurrentPage={setCurrentPage}
                                 setOrder={setOrder}
