@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // CSS
 import "../styles/card.css";
 
-export default function Card({ id, name, background_image, genres }) {
+export default function Card({ id, background_image, name, rating, genres, }) {
     return (
         <div className="cardContainer">
             <div className="card">
@@ -16,6 +16,7 @@ export default function Card({ id, name, background_image, genres }) {
                 </div>
                 <div>
                     <h3 className="card__h3">{name}</h3>
+                    <p className="card__p">{rating}</p>
                 </div>
                 <div className="card__div__ul">
                     <ul className="card__ul">

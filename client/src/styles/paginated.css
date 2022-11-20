@@ -3,7 +3,6 @@
     src: url(../utils/fonts/BlenderProBold.otf);
 }
 
-
 .paginatedContainer {
     margin-bottom: 2rem;
 }
@@ -18,6 +17,7 @@
 }
 
 .number:hover {
-    background: rgb(2, 126, 70);
+    /* background: rgb(110, 27, 167); */
+    background: rgb(160, 27, 170);
     border-radius: 30%;
 }

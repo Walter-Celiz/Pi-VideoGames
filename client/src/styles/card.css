@@ -42,6 +42,13 @@
     color: rgb(0, 240, 255);
 }
 
+.card__p {
+    color: rgb(252, 238, 10);
+    text-align: center;
+    font-family: BlenderProBold;
+    text-transform: uppercase;
+}
+
 .card__div__ul {
     margin-top: -1rem;
 }
@@ -51,7 +58,7 @@
     font-family: BlenderProBold;
     text-transform: uppercase;
     font-size: 1.25rem;
-    margin-right: 1.1rem;
+    margin-right: 2.2rem;
     text-align: center;
 }
 

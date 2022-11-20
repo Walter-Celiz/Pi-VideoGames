@@ -3,6 +3,7 @@ const initialState = {
     allVideoGames: [],
     allVideoGamesLoaded: [],
     allGenres: [],
+    rating: [],
 };
 
 // Functions
@@ -19,6 +20,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allGenres: action.payload,
+            };
+
+        case "GET_VIDEOGAME_NAME":
+            return {
+                ...state,
+                allVideoGamesLoaded: action.payload,
             };
 
         case "FILTER_GENRE":
@@ -65,18 +72,18 @@ function rootReducer(state = initialState, action) {
         case "ORDER_RATING":
             let sortRating = action.payload === "ascRat"
                 ? state.allVideoGamesLoaded.sort(function (a, b) {
-                    if (a.rating > b.rating) return 1;
-                    if (b.rating > a.rating) return -1;
+                    if (a.rating > b.rating) return -1;
+                    if (b.rating > a.rating) return 1;
                     return 0;
                 })
                 : state.allVideoGamesLoaded.sort(function (a, b) {
-                    if (a.rating > b.rating) return -1;
-                    if (b.rating > a.rating) return 1;
+                    if (a.rating > b.rating) return 1;
+                    if (b.rating > a.rating) return -1;
                     return 0;
                 });
             return {
                 ...state,
-                videoGamesLoaded: sortRating,
+                allVideoGamesLoaded: sortRating,
             };
 
         default:
