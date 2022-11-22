@@ -1,0 +1,143 @@
+@font-face {
+    font-family: Cyberpunk;
+    src: url(../utils/fonts/Cyberpunk.otf);
+}
+
+@font-face {
+    font-family: BlenderProBold;
+    src: url(../utils/fonts/BlenderProBold.otf);
+}
+
+.mainContainer {
+    background: url("../utils/img/game.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.mainContainer2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail_h2 {
+    font-family: BlenderProBold;
+    color: cyan;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    background: black;
+    padding: 1rem;
+    clip-path: polygon(8% 0, 100% 0, 100% 84%, 93% 100%, 0 100%, 0 15%);
+
+
+}
+
+.detail_section-h4 {
+    font-family: BlenderProBold;
+    color: red;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+.detail_section {
+    display: flex;
+}
+
+.detail_section-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: yellow;
+    height: 300px;
+    width: 944px;
+    max-width: 944px;
+    clip-path: polygon(89% 0, 100% 13%, 100% 100%, 0 100%, 0 0);
+    padding: 3rem;
+    margin-top: 3rem;
+    z-index: 1;
+    position: absolute;
+    top: 90vh;
+    left: 30vh;
+}
+
+.detail_section-div:hover {
+    transition: 0.4s;
+    transform: scale(1.01);
+}
+
+.detail_section-img {
+    width: 700px;
+    height: 700px;
+    max-width: 700px;
+    max-height: 700px;
+    z-index: -1;
+    /* position: absolute; */
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 11%);
+}
+
+.detail_section-img:hover {
+    transition: 0.4s;
+    transform: scale(1.01);
+}
+
+.detail_section-p {
+    font-family: BlenderProBook, ;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    font-style: normal;
+    font-weight: 300;
+    color: rgb(14, 14, 14);
+}
+
+.detail_section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12rem;
+    background: black;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    clip-path: polygon(10% 0, 100% 0, 100% 79%, 93% 100%, 11% 100%, 0 84%, 0 18%);
+}
+
+.detail_section2-h3 {
+    font-family: BlenderProBold;
+    color: yellow;
+    font-size: 2rem;
+    text-transform: uppercase;
+    /* -webkit-text-stroke: 1px black; */
+}
+
+.detail_section2-p {
+    font-family: BlenderProBold;
+    color: white;
+    font-size: 1.6rem;
+    /* -webkit-text-stroke: 1px black; */
+    display: flex;
+    flex-direction: column;
+}
+
+.detail_section22 {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail_section2-h3 {
+    margin-bottom: 0px;
+}

@@ -18,7 +18,7 @@ const getApiVideoGames = async () => {
                 released: videoGame.released,
                 background_image: videoGame.background_image,
                 rating: videoGame.rating,
-                platforms: videoGame.platforms.map((platform) => platform.name),
+                platforms: videoGame.platforms.map(p => p.platform.name),
                 description: videoGame.description,
                 genres: videoGame.genres.map((genre) => genre.name)
             }));
@@ -33,24 +33,28 @@ const getApiVideoGames = async () => {
 const getDbVideoGames = async () => {
     try {
         let videoGames = await VideoGame.findAll({
-            include: [{
-                model: Genre,
-                attributes: ["name"]
-            },
-            {
-                model: Platfor,
-                attributes: ["name"],
-            }]
+            attributes: [
+                "id",
+                "name",
+                "released",
+                "background_image",
+                "rating",
+                "description",
+                "created"
+            ],
+            include: [Genre, Platfor]
         });
+
+        console.log(videoGames);
         return videoGames.map((videoGame) => ({
             id: videoGame.id,
             name: videoGame.name,
             released: videoGame.released,
             background_image: videoGame.background_image,
             rating: videoGame.rating,
-            platforms: videoGame.platforms.map((platform) => platform.name),
+            // platforms: videoGame.platforms.map(p => p.platform.name),
             description: videoGame.description,
-            genres: videoGame.genres.map((genre) => genre.name),
+            genres: videoGame.genres.map(g => g.name),
             created: videoGame.created,
         }));
     } catch (error) {
@@ -60,33 +64,43 @@ const getDbVideoGames = async () => {
 
 const getVideoGames = async () => {
     try {
-        let [Api, DB] = await Promise.all([
-            getApiVideoGames(),
-            getDbVideoGames(),
-        ]);
+        let [Api, DB] = await Promise.all([getApiVideoGames(), getDbVideoGames()]);
         return [...Api, ...DB];
     } catch (error) {
         console.log(error + " #getVideoGames fail!!! 🔴🔴😥😭");
     }
 };
 
-const getSpecificGame = async (id) => {
+const getSpecificGame = async (req, res) => {
+    // let id = req.params.id 
+    let { id } = req.params
     try {
-        let apiCall = await axios.get(`https://api.rawg.io/api/games/${id}?key=${KEY}`);
-        let videoGameId = await apiCall.data.results.map((videoGame) => ({
-            name: videoGame.name,
-            description: videoGame.description,
-            released: videoGame.released,
-            rating: videoGame.rating,
-            platforms: videoGame.platforms.map((el) => el.platform.name),
-            background_image: videoGame.background_image,
-            genres: videoGame.genres.map((el) => el.name),
-        }));
-        return videoGameId;
+        if (id.includes('-')) {
+            const gameDb = await VideoGame.findOne({
+                where: { id },
+                include: [Genre, Platfor],
+            });
+            return res.json(gameDb);
+        } else {
+            const gameApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+            let { name, background_image, genres, description, released, rating, platforms } = gameApi.data;
+            // genres = genres.map(g => g.name); // de la API me trae un array de objetos, mapeo solo el nombre del genero
+            platforms = platforms.map(p => p.platform); // de la API me trae un array de objetos, mapeo solo el nombre de la plataforma
+            return res.json({
+                id,
+                name,
+                background_image,
+                genres,
+                platforms,
+                rating,
+                released,
+                description,
+            })
+        }
     } catch (error) {
-        console.log(error + " #getVideoGameApiId!!! 🔴🔴😥😭");
+        res.status(404).json({ error: 'Id not found 😕' });
     }
-};
+}
 
 const getGenresApi = async () => {
     try {
