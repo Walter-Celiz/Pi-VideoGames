@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "./Card";
-import "../styles/cardGroup.css";
+import "../styles/cardsGroup.css";
 
-export default function CardGroup({ currentVideoGames }) {
+export default function CardsGroup({ currentVideoGames }) {
     return (
-        <div className="cardGroupContainer">
-            <div className="cardGroup">
+        <div className="cardsGroupContainer">
+            <div className="cardsGroup">
                 <div>
                     {currentVideoGames?.map(videoGame => <Card
                         key={videoGame.id}

@@ -1,8 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const { getPlatforms } = require("../../controllers/platformsController");
+const { platformControllers } = require("../../controllers/platformController");
 
-//all this routes start with "/platforms"
-router.get("/", getPlatforms);
+router.get("/", platformControllers);
 
 module.exports = router;

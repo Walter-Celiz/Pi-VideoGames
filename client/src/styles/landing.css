@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     background: url("../utils/img/landing.jpg");
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: cover;
@@ -34,8 +34,8 @@
     font-family: Cyberpunk;
     font-size: 7rem;
     text-shadow:
-        -5px -5px 5px black,
-        5px 5px 0px black,
+        -10px -10px 10px black,
+        10px 10px 0px black,
         -5px 5px 0px black,
         5px -5px 0px rgb(75, 255, 32);
     text-align: center;

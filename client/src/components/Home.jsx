@@ -4,9 +4,10 @@ import { getGenres, getVideoGames } from "../redux/actions";
 import Navbar from "./Navbar";
 import Loading from "./Loading";
 import FiltersAndOrders from "./FiltersAndOrders";
-import CardGroup from "./CardGroup";
+import CardsGroup from "./CardsGroup";
 import Paginated from "./Paginated";
 import SearchBar from "./Searchbar";
+import ScrollToTop from "./ScrollToTop";
 import "../styles/home.css";
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
     return (
         <div className="homeContainer">
             <div className="home">
+                <ScrollToTop />
                 <Navbar />
                 <h2 className="home__h2">VIDEO&nbsp;&nbsp;&nbsp;&nbsp;GAMES</h2>
                 <div className="home">
@@ -69,7 +71,7 @@ export default function Home() {
                                     handleNext={handleNext}
                                     handlePrev={handlePrev}
                                 />
-                                <CardGroup currentVideoGames={currentVideoGames} />
+                                <CardsGroup currentVideoGames={currentVideoGames} />
                             </div>
                     }
                 </div>

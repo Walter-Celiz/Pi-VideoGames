@@ -5,6 +5,7 @@ const initialState = {
     genres: [],
     platforms: [],
     rating: [],
+    detail: []
 };
 
 // Functions
@@ -23,10 +24,22 @@ function rootReducer(state = initialState, action) {
                 videoGamesLoaded: action.payload,
             };
 
+        case "GET_DETAILS":
+            return {
+                ...state,
+                detail: action.payload,
+            };
+
         case "GET_GENRES":
             return {
                 ...state,
                 genres: action.payload,
+            };
+
+        case "GET_PLATFORMS":
+            return {
+                ...state,
+                platforms: action.payload,
             };
 
         case "POST_VIDEOGAME":

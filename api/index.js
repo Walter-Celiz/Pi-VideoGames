@@ -1,19 +1,32 @@
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
-const { db } = require("./src/db.js");
-const { PORT } = process.env;
-const { getGenres } = require("./src/controllers/genresController");
+const { conn } = require("./src/db.js");
+const { controllerGenres } = require("./src/controllers/genresController");
+const { platformControllers } = require("./src/controllers/platformController");
 
 // Syncing all the models at once.
-try {
-  db.sync({ force: true }).then(() => {
-    getGenres();
-    console.log("Genres precharged 🟢🟢🟢🟢");
-    server.listen(3001, () => {
-      console.log(`Server listening at Port: ${PORT}!!! 🟢🟢🟢🟢`); // eslint-disable-line no-console
-    });
+conn.sync({ force: true }).then(() => {
+  controllerGenres();
+  platformControllers();
+  server.listen(3001, () => {
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
-} catch (error) {
-  console.log(error + "#Server not found!!! 🔴🔴🔴🔴");
-}
-
-
+});
