@@ -52,8 +52,8 @@ export default function Home() {
                 <h2 className="home__h2">VIDEO&nbsp;&nbsp;&nbsp;&nbsp;GAMES</h2>
                 <div className="home">
                     <SearchBar
-                        currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
+                    // currentPage={currentPage}
+                    // setCurrentPage={setCurrentPage}
                     />
                     <FiltersAndOrders
                         setCurrentPage={setCurrentPage}

@@ -19,7 +19,7 @@ export function getVideoGames() {
 export function getVideoGameName(name) {
     return async function (dispatch) {
         try {
-            let videoGameName = await axios.get(`http://localhost:3001/videogames?name=` + name);
+            let videoGameName = await axios.get(`http://www.localhost:3001/videogames?name=` + name);
             return dispatch({
                 type: "GET_VIDEOGAME_NAME",
                 payload: videoGameName.data,
@@ -28,6 +28,18 @@ export function getVideoGameName(name) {
             console.log(error);
         }
     };
+}
+export function clearState() {
+    return async function (dispatch) {
+        try {
+            return dispatch({
+                type: "CLEAR_STATE",
+
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 export default function getDetails(id) {
