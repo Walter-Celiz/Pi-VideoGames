@@ -1,14 +1,13 @@
-const { Router } = require("express");
-const router = Router();
+const express = require("express");
+const router = express.Router();
 const {
-    getAllVideoGamesOrName,
-    getVideoGameById,
-    postVideoGame,
+    getVideogames,
+    getGameID,
+    postGame,
 } = require("../../controllers/videoGamesController");
 
-//all this routes start with "/videogames"
-router.get("/", getAllVideoGamesOrName);
-router.get("/:id", getVideoGameById);
-router.post("/create", postVideoGame);
+router.get("/", getVideogames);
+router.get("/:id", getGameID);
+router.post("/create", postGame);
 
 module.exports = router;

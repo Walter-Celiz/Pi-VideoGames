@@ -11,8 +11,6 @@ function validate(input) {
         (errors.name = "Name is required, please choose one!");
     } else if (input.name.length > 40) {
         (errors.name = "The video game name is too long!, please try with a shorter one");
-    } else if (!/^[a-zA-Z]+$/.test(input.name)) {
-        (errors.name = "Do not use special symbols!");
     } else if (!input.rating || input.rating > 5 || input.rating <= 1) {
         (errors.rating = "Rating must be a number between 1-5");
     } else if (!input.released) {
@@ -23,8 +21,6 @@ function validate(input) {
         errors.background_image = "The url of image is require and its length less than 255";
     } else if (!input.description) {
         (errors.description = "The description is requiere");
-    } else if (!/^[a-zA-Z]+$/.test(input.description)) {
-        errors.description = "Do not use special symbols!";
     } else if (!input.genres) {
         (errors.genres = "Pick a genre");
     } else if (!input.platforms) {
@@ -182,7 +178,7 @@ export default function Post() {
                     <select className="font" onChange={(e) => handleSelectGenre(e)}>
                         <option className="font opt">Choose Genres: </option>
                         {genres.map((genre) => (
-                            <option className="font" value={genre.id} key={genre.name}>
+                            <option className="font" value={genre.name} key={genre.name}>
                                 {genre.name}
                             </option>
                         ))}
@@ -207,7 +203,7 @@ export default function Post() {
                     <select className="font" onChange={(e) => handleSelectPlatform(e)}>
                         <option className="font opt">Choose Platforms: </option>
                         {platforms.map((platform) => (
-                            <option className="font " value={platform.id} key={platform.id}>
+                            <option className="font " value={platform.name} key={platform.id}>
                                 {platform.name}
                             </option>
                         ))}

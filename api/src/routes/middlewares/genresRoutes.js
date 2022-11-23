@@ -1,8 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const { getGenres } = require("../../controllers/genresController");
+const { controllerGenres } = require("../../controllers/genresController");
 
-//all this routes start with "/genres"
-router.get("/", getGenres);
+router.get("/", controllerGenres);
 
 module.exports = router;

@@ -7,6 +7,27 @@ export default function SearchBar({ setCurrentPage }) {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
 
+    // function handleInputChange(e) {
+    //     e.preventDefault();
+    //     setInput(e.target.value);
+    //     setCurrentPage(1);
+    // }
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     if (!input.length) {
+    //         alert("Search not Found");
+    //     } else if (typeof input === "string") {
+    //         dispatch(getVideoGameName(input));
+    //         // } else if (typeof input === "number"){
+    //         //     dispatch(getRating(input));
+    //     } else {
+    //         alert("Search not Found");
+    //     }
+    //     setCurrentPage(1);
+    //     setInput("");
+    // }
+
     function handleInputChange(e) {
         e.preventDefault();
         setInput(e.target.value);
@@ -16,16 +37,12 @@ export default function SearchBar({ setCurrentPage }) {
     function handleSubmit(e) {
         e.preventDefault();
         if (!input.length) {
-            alert("Search not Found");
-        } else if (typeof input === "string") {
-            dispatch(getVideoGameName(input));
-            // } else if (typeof input === "number"){
-            //     dispatch(getRating(input));
+            alert("Please enter a videogame");
         } else {
-            alert("Search not Found");
+            dispatch(getVideoGameName(input)); //input es lo q está escribiendo el usuario
+            setCurrentPage(1);
+            setInput("");
         }
-        setCurrentPage(1);
-        setInput("");
     }
 
     return (

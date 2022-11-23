@@ -2,10 +2,10 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -15,7 +15,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-// Read all the files from the Models folder, require them and add them to the modelDefiners array
+// Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(
     (file) =>
@@ -25,9 +25,9 @@ fs.readdirSync(path.join(__dirname, "/models"))
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
 
-// Inject the connection (sequelize) to all the models
+// Injectamos la conexion (sequelize) a todos los modelos
 modelDefiners.forEach((model) => model(sequelize));
-// Capitalize the names of the models ie: product => Product
+// Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
   entry[0][0].toUpperCase() + entry[0].slice(1),
@@ -35,17 +35,19 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// In sequelize.models are all imported models as properties
-// To relate them do a destructuring
-const { VideoGame, Genre } = sequelize.models;
+// En sequelize.models están todos los modelos importados como propiedades
+// Para relacionarlos hacemos un destructuring
+const { Videogames, Genres, Platforms } = sequelize.models;
 
-// Here would come the relationships
-VideoGame.belongsToMany(Genre, { through: "videoGame_genre" });
-Genre.belongsToMany(VideoGame, { through: "videoGame_genre" });
+Videogames.belongsToMany(Genres, { through: "VideoGameGenre" });
+Genres.belongsToMany(Videogames, { through: "VideoGameGenre" });
+Videogames.belongsToMany(Platforms, { through: "VideoGamePlatform" });
+Platforms.belongsToMany(Videogames, { through: "VideoGamePlatform" });
 
 module.exports = {
-  ...sequelize.models, // to be able to import the models 
-  db: sequelize, // to import the connection 
-  VideoGame,
-  Genre,
+  ...sequelize.models,
+  Platforms,
+  Videogames,
+  Genres, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+  conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };

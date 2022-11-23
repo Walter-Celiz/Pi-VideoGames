@@ -1,26 +1,27 @@
-const { getGenresApi } = require("./utils")
-const { Genre } = require('../db')
+const axios = require("axios");
+const { Genres } = require("../db");
+const { KEY } = process.env;
 
-const getGenres = async (req, res) => {
+const controllerGenres = async (req, res) => {
     try {
-        let genresApi = await getGenresApi()
-        for (const genre of genresApi) {
-            await Genre.findOrCreate({
-                where: {
-                    name: genre.name
-                }
-            })
+        let arrGenres = await Genres.findAll();
+
+        if (!arrGenres.length) {
+            let apiCall = await axios.get(`https://api.rawg.io/api/genres?key=${KEY}`)
+            let genres = apiCall.data.results.map((e) => e.name)
+
+            for (let i = 0; i < genres.length; i++) {
+                await Genres.create({ name: genres[i] });
+            }
+
+            res.send(await Genres.findAll());
+        } else {
+            res.send(arrGenres);
         }
-        let genres = await Genre.findAll({
-            attributes: ['id', 'name']
-        })
-        res.status(200).send(genres)
+
     } catch (error) {
         return error
     }
 }
 
-module.exports = {
-    getGenres
-}
-
+module.exports = { controllerGenres }
