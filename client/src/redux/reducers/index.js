@@ -24,6 +24,12 @@ function rootReducer(state = initialState, action) {
                 videoGamesLoaded: action.payload,
             };
 
+        case "CLEAR_STATE":
+            return {
+                ...state,
+                detail: [],
+            };
+
         case "GET_DETAILS":
             return {
                 ...state,

@@ -2,34 +2,29 @@ const axios = require("axios");
 const { Videogames, Genres, Platforms } = require("../db");
 const { KEY } = process.env;
 
-
-function buscadora(arr, palabra) {
-    if (palabra.length > 0) {
-        for (var i = 0; i < palabra.length; i++) {
-            // 				   PROPIEDAD QUE QUIERA FILTRAR
-            //                        |
-            // 						            V
+function finder(arr, word) {
+    if (word.length > 0) {
+        for (let i = 0; i < word.length; i++) {
             arr = arr.filter(
-                (e) => e.name[i]?.toUpperCase() === palabra[i].toUpperCase()
+                (e) => e.name[i]?.toUpperCase() === word[i].toUpperCase()
             );
         }
         return arr;
     }
 }
 
-var Cache = []; // Para no estar haciendo pedidos a la api todo el tiempo, lo hago 1 vez y listo
-var cantidadGamesDb = "";
-var gamesAPI = [];
+let Cache = [];
+let countGamesDb = "";
+let gamesAPI = [];
 
-/////-----TRAER TODOS LOS VIDEOJUEGOS-----/////
+/////-----ALL VIDEOJUEGOS-----/////
 const getVideogames = async (req, res) => {
     try {
-        var { name } = req.query;
+        let { name } = req.query;
 
-        if (!Cache.length || (await Videogames.count()) !== cantidadGamesDb) {
-            cantidadGamesDb = await Videogames.count();
-            var gamesDB = await Videogames.findAll({
-                //busca todos los juegos con esos atributos
+        if (!Cache.length || (await Videogames.count()) !== countGamesDb) {
+            countGamesDb = await Videogames.count();
+            let gamesDB = await Videogames.findAll({
                 attributes: ["id", "name", "background_image", "rating", "released", "created"],
                 include: [
                     {
@@ -42,6 +37,7 @@ const getVideogames = async (req, res) => {
                     },
                 ],
             });
+
             gamesDB = gamesDB.map((e) => {
                 return {
                     id: e.id,
@@ -54,15 +50,15 @@ const getVideogames = async (req, res) => {
                     created: e.created
                 };
             });
-            //
+
+            //PAGES
             let i = 1;
             if (!Cache.length) {
-                //console.log("Cargo los games de la api, osea que es el primer request si o si");
                 while (i < 6) {
                     await axios
                         .get(`https://api.rawg.io/api/games?key=${KEY}&page=${i}`)
                         .then(async (res) => {
-                            var results = res.data.results;
+                            let results = res.data.results;
                             for (let j = 0; j < results.length; j++) {
                                 for (let k = 0; k < results[j].platforms.length; k++) {
                                     await Platforms.findOrCreate({
@@ -88,16 +84,16 @@ const getVideogames = async (req, res) => {
         if (!name) {
             res.json([...Cache]);
         } else {
-            res.send(buscadora(Cache, name));
+            res.send(finder(Cache, name));
         }
-    } catch (e) {
-        res.send(e);
+    } catch (error) {
+        res.send(error);
     }
 };
 
 /////-----TRAER VIDEOJUEGOS POR ID-----/////
 const getGameID = async (req, res) => {
-    // const id = req.params.id   es lo mismo
+    // const id = req.params.id 
     const { id } = req.params;
     try {
         if (id.includes("-")) {
@@ -119,9 +115,10 @@ const getGameID = async (req, res) => {
                 rating,
                 platforms,
             } = gameApi.data;
-            // genres = genres.map(g => g.name); // de la API me trae un array de objetos, mapeo solo el nombre del genero
-            platforms = platforms.map((p) => p.platform); // de la API me trae un array de objetos, mapeo solo el nombre de la plataforma
+
             description = description.replace(/<[^>]*>?/g, "");
+            platforms = platforms.map((p) => p.platform);
+
             return res.json({
                 id,
                 name,
@@ -138,7 +135,7 @@ const getGameID = async (req, res) => {
     }
 };
 
-/////-----POSTEAR VIDEOJUEGO-----/////
+/////-----POST VIDEOGAME-----/////
 const postGame = async (req, res) => {
     let {
         name,
@@ -174,14 +171,13 @@ const postGame = async (req, res) => {
         await gameCreated.addPlatform(gamePlatform);
 
         res.send(`Game Created, its id is ${gameCreated.id}`);
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.log(error);
     }
 };
 
 module.exports = {
     getVideogames,
-    // getNamesGames,
     getGameID,
     postGame,
 };

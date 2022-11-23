@@ -79,7 +79,7 @@ export default function Post() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        // console.log(input);
+        console.log(input);
         dispatch(postVideoGame(input));
         alert("Video Game Creado");
         setInput({

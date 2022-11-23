@@ -3,35 +3,14 @@ import { useDispatch, useSelector } from "react-redux"; // eslint-disable-line
 import { getVideoGameName } from "../redux/actions";
 import "../styles/searchBar.css";
 
-export default function SearchBar({ setCurrentPage }) {
+export default function SearchBar() {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
-
-    // function handleInputChange(e) {
-    //     e.preventDefault();
-    //     setInput(e.target.value);
-    //     setCurrentPage(1);
-    // }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     if (!input.length) {
-    //         alert("Search not Found");
-    //     } else if (typeof input === "string") {
-    //         dispatch(getVideoGameName(input));
-    //         // } else if (typeof input === "number"){
-    //         //     dispatch(getRating(input));
-    //     } else {
-    //         alert("Search not Found");
-    //     }
-    //     setCurrentPage(1);
-    //     setInput("");
-    // }
 
     function handleInputChange(e) {
         e.preventDefault();
         setInput(e.target.value);
-        setCurrentPage(1);
+        // setCurrentPage(1);
     }
 
     function handleSubmit(e) {
@@ -40,7 +19,7 @@ export default function SearchBar({ setCurrentPage }) {
             alert("Please enter a videogame");
         } else {
             dispatch(getVideoGameName(input)); //input es lo q está escribiendo el usuario
-            setCurrentPage(1);
+            // setCurrentPage(1);
             setInput("");
         }
     }
@@ -67,3 +46,26 @@ export default function SearchBar({ setCurrentPage }) {
         </div>
     );
 }
+
+
+
+  // function handleInputChange(e) {
+    //     e.preventDefault();
+    //     setInput(e.target.value);
+    //     setCurrentPage(1);
+    // }
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     if (!input.length) {
+    //         alert("Search not Found");
+    //     } else if (typeof input === "string") {
+    //         dispatch(getVideoGameName(input));
+    //         // } else if (typeof input === "number"){
+    //         //     dispatch(getRating(input));
+    //     } else {
+    //         alert("Search not Found");
+    //     }
+    //     setCurrentPage(1);
+    //     setInput("");
+    // }
