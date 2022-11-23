@@ -1,7 +1,7 @@
 const axios = require("axios");
 require("dotenv").config();
 const { KEY } = process.env;
-const { VideoGame, Genre, Platfor } = require("../db");
+const { VideoGame, Genre } = require("../db");
 
 const getApiVideoGames = async () => {
     try {
@@ -42,7 +42,7 @@ const getDbVideoGames = async () => {
                 "description",
                 "created"
             ],
-            include: [Genre, Platfor]
+            include: Genre
         });
 
         console.log(videoGames);
@@ -52,7 +52,7 @@ const getDbVideoGames = async () => {
             released: videoGame.released,
             background_image: videoGame.background_image,
             rating: videoGame.rating,
-            // platforms: videoGame.platforms.map(p => p.platform.name),
+            platforms: videoGame.platforms.map(p => p.platform.name),
             description: videoGame.description,
             genres: videoGame.genres.map(g => g.name),
             created: videoGame.created,

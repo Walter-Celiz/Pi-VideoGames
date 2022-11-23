@@ -6,7 +6,7 @@
 .homeContainer {
     display: flex;
     justify-content: center;
-    background: url("https://images.hdqwalls.com/download/cyberpunk-edgerunners-lucy-4k-nb-2560x1080.jpg");
+    /* background: url("https://images.hdqwalls.com/download/cyberpunk-edgerunners-lucy-4k-nb-2560x1080.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

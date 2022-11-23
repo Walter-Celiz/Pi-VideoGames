@@ -57,7 +57,6 @@ const postVideoGame = async (req, res) => {
             genres
         });
 
-        newVideoGame.addPlatfor(platforms);
         newVideoGame.addGenre(genres);
         res.status(200).send(" Video Game created!!! 🟢🟢😁😁");
     } catch (error) {

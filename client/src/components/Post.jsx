@@ -72,6 +72,7 @@ export default function Post() {
         });
         console.log(input);
     }
+
     function handleSelectPlatform(e) {
         setInput({
             ...input,
@@ -181,14 +182,14 @@ export default function Post() {
                     <select className="font" onChange={(e) => handleSelectGenre(e)}>
                         <option className="font opt">Choose Genres: </option>
                         {genres.map((genre) => (
-                            <option className="font" value={genre.id} key={genre.id}>
+                            <option className="font" value={genre.id} key={genre.name}>
                                 {genre.name}
                             </option>
                         ))}
                     </select>
                     <div className="platforShowContainer">
                         {input.genres.map((genre) => (
-                            <div className="platforShow">
+                            <div className="platforShow" key={genre}>
                                 {genre}&nbsp;
                                 <button
                                     className="formCloseBtn"
@@ -213,7 +214,7 @@ export default function Post() {
                     </select>
                     <div className="platforShowContainer">
                         {input.platforms.map((platform) => (
-                            <div className="platforShow">
+                            <div className="platforShow" key={platform}>
                                 {platform}&nbsp;
                                 <button
                                     className="formCloseBtn"
