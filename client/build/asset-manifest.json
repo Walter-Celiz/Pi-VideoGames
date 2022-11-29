@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a0627584.chunk.css",
+    "main.js": "/static/js/main.a53b4d85.chunk.js",
+    "main.js.map": "/static/js/main.a53b4d85.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f5b0d797.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f5b0d797.js.map",
+    "static/js/2.8d169c74.chunk.js": "/static/js/2.8d169c74.chunk.js",
+    "static/js/2.8d169c74.chunk.js.map": "/static/js/2.8d169c74.chunk.js.map",
+    "static/js/3.54caf62d.chunk.js": "/static/js/3.54caf62d.chunk.js",
+    "static/js/3.54caf62d.chunk.js.map": "/static/js/3.54caf62d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a0627584.chunk.css.map": "/static/css/main.a0627584.chunk.css.map",
+    "static/js/2.8d169c74.chunk.js.LICENSE.txt": "/static/js/2.8d169c74.chunk.js.LICENSE.txt",
+    "static/media/details.css": "/static/media/game.fac99d70.jpg",
+    "static/media/landing.css": "/static/media/landing.53e11f41.jpg",
+    "static/media/loading.c10bc5bf.gif": "/static/media/loading.c10bc5bf.gif",
+    "static/media/post.css": "/static/media/post.8d7ded9a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f5b0d797.js",
+    "static/js/2.8d169c74.chunk.js",
+    "static/css/main.a0627584.chunk.css",
+    "static/js/main.a53b4d85.chunk.js"
+  ]
+}
