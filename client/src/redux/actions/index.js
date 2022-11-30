@@ -5,7 +5,7 @@ import axios from "axios";
 export function getVideoGames() {
     return async function (dispatch) {
         try {
-            let videoGames = await axios.get("http://localhost:3001/videogames");
+            let videoGames = await axios.get("/videogames");
             return dispatch({
                 type: "GET_VIDEOGAMES",
                 payload: videoGames.data,
@@ -19,7 +19,7 @@ export function getVideoGames() {
 export function getVideoGameName(name) {
     return async function (dispatch) {
         try {
-            let videoGameName = await axios.get(`http://www.localhost:3001/videogames?name=` + name);
+            let videoGameName = await axios.get(`/videogames?name=` + name);
             return dispatch({
                 type: "GET_VIDEOGAME_NAME",
                 payload: videoGameName.data,
@@ -45,7 +45,7 @@ export function clearState() {
 export default function getDetails(id) {
     return async function (dispatch) {
         try {
-            let videoGame = await axios.get(`http://localhost:3001/videogames/${id}`);
+            let videoGame = await axios.get(`/videogames/${id}`);
             return dispatch({
                 type: "GET_DETAILS",
                 payload: videoGame.data,
@@ -59,7 +59,7 @@ export default function getDetails(id) {
 export function getGenres() {
     return async function (dispatch) {
         try {
-            let genres = await axios.get("http://localhost:3001/genres");
+            let genres = await axios.get("/genres");
             return dispatch({
                 type: "GET_GENRES",
                 payload: genres.data,
@@ -73,7 +73,7 @@ export function getGenres() {
 export function getPlatforms() {
     return async function (dispatch) {
         try {
-            let platforms = await axios.get("http://localhost:3001/platforms");
+            let platforms = await axios.get("/platforms");
             return dispatch({
                 type: "GET_PLATFORMS",
                 payload: platforms.data,
@@ -87,7 +87,7 @@ export function getPlatforms() {
 export function postVideoGame(body) {
     return async function (dispatch) {
         try {
-            let videoGame = await axios.post(`http://localhost:3001/videogames/create`, body);
+            let videoGame = await axios.post(`/videogames/create`, body);
             return dispatch({
                 type: "POST_VIDEOGAME",
                 payload: videoGame.data,
