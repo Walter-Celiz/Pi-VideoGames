@@ -21,15 +21,12 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const { controllerGenres } = require("./src/controllers/genresController");
 const { platformControllers } = require("./src/controllers/platformController");
-const { getVideogames } = require("./src/controllers/videoGamesController");
-const port = process.env.PORT || 3001
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  getVideogames();
   controllerGenres();
   platformControllers();
   server.listen(3001, () => {
-    console.log(`Server listening at port: ${port}`); // eslint-disable-line no-console
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
 });
