@@ -5,7 +5,7 @@ import Post from "./components/Post";
 import Details from "./components/Details";
 import "./App.css";
 import axios from "axios";
-axios.defaults.baseURL = "https://backend-pi-foods.up.railway.app/";
+axios.defaults.baseURL = "https://backend-pi-videogames.up.railway.app/";
 
 export default function App() {
   return (
