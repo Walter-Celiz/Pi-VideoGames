@@ -1,75 +1,173 @@
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
-}
-
-.filtersContainer {
-    margin-bottom: 2rem;
-    display: flex;
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
 .filters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.filter1 {
-    color: black;
-    padding: 0.3rem 0.2rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: BlenderProBold;
+.filter__select {
+  display: grid;
+  grid-column: 2/4;
+  grid-row: 1/2;
+
+  color: black;
+  /* padding: 0.3rem 0.2rem; */
+  text-align: center;
+  text-transform: uppercase;
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background: rgb(75, 255, 32);
+  outline: transparent;
+  /* border-radius: 20px; */
+}
+
+.filter__select2 {
+  display: grid;
+  grid-column: 2/4;
+  grid-row: 2/3;
+  border-radius: 20px;
+  text-align: center;
+  background: rgb(205, 205, 205);
+  outline: transparent;
+  font-size: 1.1rem;
+  font-family: BlenderProBold;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.filter__select3 {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  border-radius: 20px;
+  text-align: center;
+  background: rgb(205, 205, 205);
+  outline: transparent;
+  font-size: 1.1rem;
+  font-family: BlenderProBold;
+  text-transform: uppercase;
+}
+.filter__select4 {
+  display: grid;
+  grid-column: 3/4;
+  grid-row: 3/4;
+  border-radius: 20px;
+  text-align: center;
+  background: rgb(205, 205, 205);
+  outline: transparent;
+  font-size: 1.1rem;
+  font-family: BlenderProBold;
+  text-transform: uppercase;
+}
+
+.filter__btn {
+  display: grid;
+  grid-column: 2/4;
+  grid-row: 4/5;
+  text-align: center;
+  margin: 0 4rem;
+  background: black;
+  color: rgb(252, 238, 10);
+  border: 1px solid rgb(252, 238, 10);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  clip-path: polygon(
+    16% 1%,
+    86% 0,
+    100% 17%,
+    100% 80%,
+    85% 100%,
+    18% 100%,
+    0 83%,
+    0 17%
+  );
+  cursor: pointer;
+}
+
+.filter__select:hover {
+  background: rgb(0, 240, 255);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.filter__btn:hover {
+  background: rgb(0, 240, 255);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+option {
+  font-size: 1rem;
+  width: 30vw;
+}
+
+@media (min-width: 390px) {
+  .filter__select,
+  .filter__select2,
+  .filter__select3,
+  .filter__select4,
+  .filter__btn {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter__select,
+  .filter__select2,
+  .filter__select3,
+  .filter__select4,
+  .filter__btn {
+    font-size: 1.5rem;
+  }
+  .filter__btn {
+    margin: 0 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filter__select,
+  .filter__select2,
+  .filter__select3,
+  .filter__select4,
+  .filter__btn {
+    font-size: 1.6rem;
+  }
+  .filter__btn {
+    margin: 0 8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .filter__select,
+  .filter__select2,
+  .filter__select3,
+  .filter__select4,
+  .filter__btn {
     font-size: 1.2rem;
-    cursor: pointer;
+  }
+  .filter__btn {
+    margin: 0 14rem;
+  }
 }
 
-.filter1:hover {
-    background: rgb(0, 240, 255);
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-.filter1_bg {
-    background: rgb(205, 205, 205);
-    outline: transparent;
-}
-
-.filter1_bg2 {
-    background: rgb(75, 255, 32);
-    outline: transparent;
-}
-
-.filter1_mg {
-    margin: 0 0.1rem;
-}
-
-.filter1_bor {
-    border-radius: 10px 0 0 10px;
-}
-
-.filter1_bor2 {
-    border-radius: 0 10px 10px 0;
-}
-
-.filter2 {
-    margin-top: 1rem;
-}
-
-.filter2_bg {
-    background: black;
-    color: rgb(252, 238, 10);
-    border: 1px solid rgb(252, 238, 10);
-    text-align: center;
-    text-transform: uppercase;
-    font-family: BlenderProBold;
-    font-size: 1.3rem;
-    clip-path: polygon(16% 1%, 86% 0, 100% 17%, 100% 80%, 85% 100%, 18% 100%, 0 83%, 0 17%);
-    cursor: pointer;
-}
-
-.filter2:hover {
-    background: rgb(0, 240, 255);
-    transition: 0.4s;
-    cursor: pointer;
+@media (min-width: 1920px) {
+  .filter__select,
+  .filter__select2,
+  .filter__select3,
+  .filter__select4,
+  .filter__btn {
+    font-size: 1.2rem;
+  }
+  .filter__btn {
+    margin: 0 18rem;
+  }
 }

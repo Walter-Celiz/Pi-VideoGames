@@ -1,120 +1,119 @@
 @font-face {
-    font-family: Cyberpunk;
-    src: url(../utils/fonts/Cyberpunk.otf);
+  font-family: Cyberpunk;
+  src: url(../utils/fonts/Cyberpunk.otf);
 }
 
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
 .postVideoGameContainer {
-    display: flex;
-    flex-direction: column;
-    background: url("../utils/img/post.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 97vh;
+  display: flex;
+  flex-direction: column;
+  background: url("../utils/img/post.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 97vh;
 }
 
 .postVideoGame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .font {
-    font-family: BlenderProBold;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
 .font__bold {
-    font-family: BlenderProBook;
-    font-size: 1.25rem;
-    letter-spacing: 0;
-    font-style: normal;
-    font-weight: 300;
-    color: rgb(14, 14, 14);
+  font-family: BlenderProBook;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  font-style: normal;
+  font-weight: 300;
+  color: rgb(14, 14, 14);
 }
 
 .mg {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .mg2 {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .postVideoGame__form {
-    display: flex;
-    flex-direction: column;
-    background: rgb(252, 238, 10);
-    clip-path: polygon(89% 0, 100% 13%, 100% 100%, 0 100%, 0 0);
-    padding: 8vh 3vw;
+  display: flex;
+  flex-direction: column;
+  background: rgb(252, 238, 10);
+  clip-path: polygon(89% 0, 100% 13%, 100% 100%, 0 100%, 0 0);
+  padding: 8vh 3vw;
 }
 
 .postVideoGame__p2 {
-    max-width: 400px;
-    margin-left: 1rem;
+  max-width: 400px;
+  margin-left: 1rem;
 }
 
 .postVideoGame__btn {
-    background: black;
-    color: white;
-    clip-path: polygon(100% 0, 100% 72%, 94% 100%, 0 100%, 0 0);
+  background: black;
+  color: white;
+  clip-path: polygon(100% 0, 100% 72%, 94% 100%, 0 100%, 0 0);
 }
 
 .postVideoGame__btn-disable {
-    display: none;
+  display: none;
 }
 
 .postVideoGame__btn:hover {
-    background: rgb(0, 240, 255);
-    transition: 0.4s;
-    color: black;
+  background: rgb(0, 240, 255);
+  transition: 0.4s;
+  color: black;
 }
 
 .postVideoGame__input {
-    background: transparent;
-    border-top: transparent;
-    border-right: transparent;
-    border-left: transparent;
-    outline: transparent;
-    padding-left: 1.2rem;
+  background: transparent;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  outline: transparent;
+  padding-left: 1.2rem;
 }
 
 .opt {
-    text-align: center;
+  text-align: center;
 }
 
 .validate {
-    font-family: BlenderProBook;
-    font-size: 1rem;
-    letter-spacing: 0;
-    font-style: normal;
-    font-weight: 300;
-    color: red;
+  font-family: BlenderProBook;
+  font-size: 1rem;
+  letter-spacing: 0;
+  font-style: normal;
+  font-weight: 300;
+  color: red;
 }
 
 .platforShowContainer {
-    display: flex;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .platforShow {
-    display: flex;
+  display: flex;
 }
 
 .formCloseBtn {
-    background: black;
-    color: cyan;
+  background: black;
+  color: cyan;
 }
 
 .platforShow {
-    font-family: BlenderProBold;
-    font-size: 1.2rem;
+  font-family: BlenderProBold;
+  font-size: 1.2rem;
 }

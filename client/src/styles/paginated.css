@@ -1,33 +1,33 @@
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
 .paginatedContainer {
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .paginated {
-    display: flex;
+  display: flex;
 }
 
 .number,
 .prev,
 .next {
-    background: transparent;
-    color: cyan;
-    font-family: BlenderProBold;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 0 0.7rem;
+  background: transparent;
+  color: cyan;
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0 0.7rem;
 }
 
 .number:hover,
 .prev:hover,
 .next:hover {
-    background: rgb(252, 238, 10);
-    color: black;
-    border-radius: 30%;
+  background: rgb(252, 238, 10);
+  color: black;
+  border-radius: 30%;
 }
