@@ -2,20 +2,13 @@ const axios = require("axios");
 const { Genres } = require("../db");
 const { KEY } = process.env;
 
-const axiosConfig = {
-  headers: {
-    "accept-encoding": null,
-  },
-};
-
 const controllerGenres = async (req, res) => {
   try {
     let arrGenres = await Genres.findAll();
 
     if (!arrGenres.length) {
       let apiCall = await axios.get(
-        `https://api.rawg.io/api/genres?key=${KEY}`,
-        axiosConfig
+        `https://api.rawg.io/api/genres?key=${KEY}`
       );
       let genres = apiCall.data.results.map((e) => e.name);
 

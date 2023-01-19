@@ -2,12 +2,6 @@ const axios = require("axios");
 const { Videogames, Genres, Platforms } = require("../db");
 const { KEY } = process.env;
 
-const axiosConfig = {
-  headers: {
-    "accept-encoding": null,
-  },
-};
-
 function finder(arr, word) {
   if (word.length > 0) {
     for (let i = 0; i < word.length; i++) {
@@ -69,10 +63,7 @@ const getVideogames = async (req, res) => {
       if (!Cache.length) {
         while (i < 6) {
           await axios
-            .get(
-              `https://api.rawg.io/api/games?key=${KEY}&page=${i}`,
-              axiosConfig
-            )
+            .get(`https://api.rawg.io/api/games?key=${KEY}&page=${i}`)
             .then(async (res) => {
               let results = res.data.results;
               for (let j = 0; j < results.length; j++) {
@@ -120,8 +111,7 @@ const getGameID = async (req, res) => {
       return res.json(gameDb);
     } else {
       const gameApi = await axios.get(
-        `https://api.rawg.io/api/games/${id}?key=${KEY}`,
-        axiosConfig
+        `https://api.rawg.io/api/games/${id}?key=${KEY}`
       );
       let {
         name,
