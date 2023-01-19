@@ -9,16 +9,16 @@
   <img height="400" width="900" src="./1.jpg" />
 </p>
 <p align="center">
-  <img height="400" width="800" src="./2.jpg" />
+  <img height="400" width="900" src="./2.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./3.jpg" />
+  <img height="400" width="900" src="./3.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./4.jpg" />
+  <img height="400" width="900" src="./4.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./5.jpg" />
+  <img height="400" width="900" src="./5.jpg" />
 </p>
 
 
