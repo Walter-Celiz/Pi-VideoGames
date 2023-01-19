@@ -19,13 +19,13 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { controllerGenres } = require("./src/controllers/genresController");
-const { platformControllers } = require("./src/controllers/platformController");
+// const { controllerGenres } = require("./src/controllers/genresController");
+// const { platformControllers } = require("./src/controllers/platformController");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  controllerGenres();
-  platformControllers();
+  // controllerGenres();
+  // platformControllers();
   server.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
