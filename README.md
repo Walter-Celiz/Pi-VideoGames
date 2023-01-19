@@ -5,14 +5,24 @@
 # Individual Project - Henry VideoGames - Walter Celiz
 
 <p align="center">
-  <img height="400" src="./1.png" />
+  <img height="400" src="./vg0.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./2.png" />
+  <img height="400" src="./vg1.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./3.png" />
+  <img height="400" src="./vg2.jpg" />
 </p>
+<p align="center">
+  <img height="400" src="./vg3.jpg" />
+</p>
+<p align="center">
+  <img height="400" src="./vg4.jpg" />
+</p>
+<p align="center">
+  <img height="400" src="./vg5.jpg" />
+</p>
+
 
 ## Objetivos del Proyecto.
 
