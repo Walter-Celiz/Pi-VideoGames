@@ -12,7 +12,6 @@ export function getVideoGames() {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -27,7 +26,6 @@ export function getVideoGameName(name) {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -39,7 +37,6 @@ export function clearState() {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -54,7 +51,6 @@ export default function getDetails(id) {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -69,7 +65,6 @@ export function getGenres() {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -84,7 +79,6 @@ export function getPlatforms() {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -99,7 +93,6 @@ export function postVideoGame(body) {
       });
     } catch (error) {
       return error;
-      // console.log(error);
     }
   };
 }
@@ -112,7 +105,6 @@ export function filterGenre(payload) {
     };
   } catch (error) {
     return error;
-    // console.log(error);
   }
 }
 
@@ -124,7 +116,6 @@ export function filterCreated(payload) {
     };
   } catch (error) {
     return error;
-    // console.log(error);
   }
 }
 
@@ -136,7 +127,6 @@ export function orderName(payload) {
     };
   } catch (error) {
     return error;
-    // console.log(error);
   }
 }
 
@@ -148,6 +138,5 @@ export function orderRating(payload) {
     };
   } catch (error) {
     return error;
-    // console.log();
   }
 }
