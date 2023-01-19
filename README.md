@@ -17,7 +17,7 @@
 <p align="">
   <img height="400" width="900" src="./4.jpg" />
 </p>
-<p align="center">
+<p align="">
   <img height="400" width="900" src="./5.jpg" />
 </p>
 
