@@ -181,3 +181,15 @@
     width: 700px;
   }
 }
+
+@media (min-width: 1280px) {
+  .detailContainer__h2 {
+    font-size: 3.5rem;
+  }
+  .content__imgs {
+    width: 550px;
+  }
+  .content {
+    width: 700px;
+  }
+}

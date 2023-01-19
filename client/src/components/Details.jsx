@@ -13,8 +13,8 @@ export default function Details(props) {
   const videoGameDetail = useSelector((state) => state.detail);
 
   useEffect(() => {
-    dispatch(getDetails(props.match.params.id));
     dispatch(clearState());
+    dispatch(getDetails(props.match.params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
