@@ -5,16 +5,16 @@
 # Individual Project - Henry VideoGames - Walter Celiz
 
 
-<p align="center">
+<p align="">
   <img height="400" width="900" src="./1.jpg" />
 </p>
-<p align="center">
+<p align="">
   <img height="400" width="900" src="./2.jpg" />
 </p>
-<p align="center">
+<p align="">
   <img height="400" width="900" src="./3.jpg" />
 </p>
-<p align="center">
+<p align="">
   <img height="400" width="900" src="./4.jpg" />
 </p>
 <p align="center">
