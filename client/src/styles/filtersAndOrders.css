@@ -40,6 +40,7 @@
   font-family: BlenderProBold;
   text-transform: uppercase;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .filter__select3 {
@@ -53,6 +54,7 @@
   font-size: 1.1rem;
   font-family: BlenderProBold;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .filter__select4 {
   display: grid;
@@ -65,6 +67,7 @@
   font-size: 1.1rem;
   font-family: BlenderProBold;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .filter__btn {

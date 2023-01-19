@@ -2,11 +2,15 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
 }
 
 .cardContainer {
   display: grid;
   grid-column: 1/2;
+  justify-items: center;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {

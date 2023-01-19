@@ -114,14 +114,15 @@
   text-align: center;
 }
 
-.detail_section-div:hover {
-  transition: 0.4s;
-  transform: scale(1.01);
+.section__genresPlatform:hover {
+  transition: 1s;
+  transform: scale(1.04);
 }
 
-.detail_section-img:hover {
-  transition: 0.4s;
-  transform: scale(1.01);
+.content__images:hover {
+  transform: scale(1.05);
+  transition: 1s;
+  z-index: -1;
 }
 
 .section__genresPlatform {

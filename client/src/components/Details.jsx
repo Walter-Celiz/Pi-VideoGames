@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getDetails from "../redux/actions";
-import clearState from "../redux/actions";
 import Navbar from "./Navbar";
 import Loading from "./Loading";
 import ScrollToTop from "./ScrollToTop";
@@ -13,7 +12,6 @@ export default function Details(props) {
   const videoGameDetail = useSelector((state) => state.detail);
 
   useEffect(() => {
-    dispatch(clearState());
     dispatch(getDetails(props.match.params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
