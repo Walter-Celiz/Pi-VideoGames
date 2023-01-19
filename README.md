@@ -6,10 +6,10 @@
 
 
 <p align="center">
-  <img height="400" width="400" src="./1.jpg" />
+  <img height="400" width="600" src="./1.jpg" />
 </p>
 <p align="center">
-  <img height="400" src="./2.jpg" />
+  <img height="400" width="700" src="./2.jpg" />
 </p>
 <p align="center">
   <img height="400" src="./3.jpg" />
