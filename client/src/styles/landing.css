@@ -95,9 +95,9 @@
 
 @media (min-width: 1280px) {
   .landing__h2 {
-    font-size: 7rem;
+    font-size: 6rem;
     padding: 2rem;
-    margin-top: 8rem;
+    margin-top: 4rem;
   }
   .landing__button {
     margin-bottom: 14rem;
