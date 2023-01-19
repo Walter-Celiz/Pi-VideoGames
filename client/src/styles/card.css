@@ -132,13 +132,14 @@
 
 @media (min-width: 1280px) {
   .card {
-    width: 450px;
-    margin-left: 2rem;
+    width: 390px;
+    margin-left: 4rem;
   }
 }
 
 @media (min-width: 1920px) {
   .card {
-    width: 550px;
+    width: 400px;
+    margin-left: 7rem;
   }
 }

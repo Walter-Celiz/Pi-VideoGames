@@ -22,6 +22,8 @@
   font-size: 1.3rem;
   cursor: pointer;
   padding: 0 0.7rem;
+  outline: none;
+  border: none;
 }
 
 .number:hover,
@@ -30,4 +32,10 @@
   background: rgb(252, 238, 10);
   color: black;
   border-radius: 30%;
+}
+
+.number:focus {
+  background: rgb(252, 238, 10) !important;
+  color: black !important;
+  border-radius: 30% !important;
 }

@@ -147,6 +147,9 @@ option {
 }
 
 @media (min-width: 1280px) {
+  .filters {
+    padding: 0 12rem;
+  }
   .filter__select,
   .filter__select2,
   .filter__select3,
@@ -160,6 +163,9 @@ option {
 }
 
 @media (min-width: 1920px) {
+  .filters {
+    padding: 0 14rem;
+  }
   .filter__select,
   .filter__select2,
   .filter__select3,

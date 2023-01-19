@@ -33,7 +33,7 @@
   text-decoration: none;
   color: black;
   background: rgb(203, 203, 203);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: BlenderProBold;
   padding: 0 1rem;
   clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 80%, 0 0);
@@ -43,7 +43,7 @@
   text-decoration: none;
   color: black;
   background: rgb(75, 255, 32);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: BlenderProBold;
   padding: 0 0.5rem;
   clip-path: polygon(100% 0%, 100% 80%, 90% 100%, 0% 100%, 0 0);
