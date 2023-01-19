@@ -1,44 +1,56 @@
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
-}
-
-.navbarContainer {
-    display: flex;
-    justify-content: center;
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
 .navbar {
-    display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.navbar__div {
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: end;
+  margin-right: 1rem;
+}
+
+.navbar__div2 {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: start;
+  margin-left: -0.5rem;
 }
 
 .navbar__link {
-    text-decoration: none;
-    color: black;
-    background: rgb(203, 203, 203);
-    font-size: 3rem;
-    font-family: BlenderProBold;
-    padding: 0 1rem;
-    clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 80%, 0 0);
+  text-decoration: none;
+  color: black;
+  background: rgb(203, 203, 203);
+  font-size: 2.5rem;
+  font-family: BlenderProBold;
+  padding: 0 1rem;
+  clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 80%, 0 0);
 }
 
 .navbar__link2 {
-    text-decoration: none;
-    color: black;
-    background: rgb(75, 255, 32);
-    font-size: 3rem;
-    font-family: BlenderProBold;
-    padding: 0 0.5rem;
-    clip-path: polygon(100% 0%, 100% 80%, 90% 100%, 0% 100%, 0 0);
-}
-
-
-.navbar__div {
-    margin: 1rem 0.3rem;
+  text-decoration: none;
+  color: black;
+  background: rgb(75, 255, 32);
+  font-size: 2.5rem;
+  font-family: BlenderProBold;
+  padding: 0 0.5rem;
+  clip-path: polygon(100% 0%, 100% 80%, 90% 100%, 0% 100%, 0 0);
 }
 
 .navbar__link:hover,
 .navbar__link2:hover {
-    background: rgb(0, 240, 255);
-    transition: 0.4s;
+  background: rgb(0, 240, 255);
+  transition: 0.4s;
 }

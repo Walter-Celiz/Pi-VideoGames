@@ -1,120 +1,176 @@
 @font-face {
-    font-family: Cyberpunk;
-    src: url(../utils/fonts/Cyberpunk.otf);
+  font-family: Cyberpunk;
+  src: url(../utils/fonts/Cyberpunk.otf);
 }
 
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
-.postVideoGameContainer {
-    display: flex;
-    flex-direction: column;
-    background: url("../utils/img/post.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 97vh;
-}
-
-.postVideoGame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.postContainer {
+  display: grid;
+  background: url("../utils/img/post.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  justify-items: center;
+  /* align-items: center; */
 }
 
 .font {
-    font-family: BlenderProBold;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
-.font__bold {
-    font-family: BlenderProBook;
-    font-size: 1.25rem;
-    letter-spacing: 0;
-    font-style: normal;
-    font-weight: 300;
-    color: rgb(14, 14, 14);
+.post__fieldset {
+  margin-bottom: 0.5rem;
+  border: none;
 }
 
-.mg {
-    margin-bottom: 0.5rem;
+.post__fieldset2 {
+  margin-bottom: 2.5rem;
+  border: none;
 }
 
-.mg2 {
-    margin-bottom: 2.5rem;
-}
-
-.postVideoGame__form {
-    display: flex;
-    flex-direction: column;
-    background: rgb(252, 238, 10);
-    clip-path: polygon(89% 0, 100% 13%, 100% 100%, 0 100%, 0 0);
-    padding: 8vh 3vw;
+.post__form {
+  display: grid;
+  background: rgb(252, 238, 10);
+  clip-path: polygon(89% 0, 100% 13%, 100% 100%, 0 100%, 0 0);
+  padding: 8vh 3vw;
+  /* margin-top: -4rem; */
+  margin-bottom: 6rem;
+  width: 320px;
 }
 
 .postVideoGame__p2 {
-    max-width: 400px;
-    margin-left: 1rem;
+  max-width: 400px;
+  margin-left: 1rem;
 }
 
 .postVideoGame__btn {
-    background: black;
-    color: white;
-    clip-path: polygon(100% 0, 100% 72%, 94% 100%, 0 100%, 0 0);
+  background: black;
+  color: white;
+  clip-path: polygon(100% 0, 100% 72%, 94% 100%, 0 100%, 0 0);
 }
 
 .postVideoGame__btn-disable {
-    display: none;
+  display: none;
 }
 
 .postVideoGame__btn:hover {
-    background: rgb(0, 240, 255);
-    transition: 0.4s;
-    color: black;
+  background: rgb(0, 240, 255);
+  transition: 0.4s;
+  color: black;
 }
 
-.postVideoGame__input {
-    background: transparent;
-    border-top: transparent;
-    border-right: transparent;
-    border-left: transparent;
-    outline: transparent;
-    padding-left: 1.2rem;
+.post__input {
+  background: transparent;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  outline: transparent;
+  padding-left: 1.2rem;
+
+  font-family: BlenderProBook;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  font-style: normal;
+  font-weight: 300;
+  color: rgb(14, 14, 14);
+}
+
+.post__input-3 {
+  width: 210px;
+}
+.post__input-4 {
+  width: 210px;
+}
+.post__input-5 {
+  width: 170px;
 }
 
 .opt {
-    text-align: center;
+  text-align: center;
 }
 
 .validate {
-    font-family: BlenderProBook;
-    font-size: 1rem;
-    letter-spacing: 0;
-    font-style: normal;
-    font-weight: 300;
-    color: red;
+  font-family: BlenderProBook;
+  font-size: 1rem;
+  letter-spacing: 0;
+  font-style: normal;
+  font-weight: 300;
+  color: red;
 }
 
 .platforShowContainer {
-    display: flex;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-items: end;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  margin-right: 2rem;
 }
 
 .platforShow {
-    display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .formCloseBtn {
-    background: black;
-    color: cyan;
+  display: grid;
+  background: black;
+  color: cyan;
+  margin-left: 0.2rem;
 }
 
 .platforShow {
-    font-family: BlenderProBold;
-    font-size: 1.2rem;
+  font-family: BlenderProBold;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 390px) {
+  .post__form {
+    margin-bottom: 10rem;
+    width: 330px;
+  }
+}
+
+@media (min-width: 768px) {
+  .post__form {
+    margin-bottom: 16rem;
+    width: 500px;
+  }
+  .post__fieldset,
+  .post__fieldset2 {
+    margin-left: 6rem;
+  }
+  .platforShowContainer {
+    margin-right: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post__form {
+    margin-bottom: 30rem;
+    width: 600px;
+  }
+  .post__fieldset,
+  .post__fieldset2 {
+    margin-left: 8rem;
+  }
+  .platforShowContainer {
+    margin-right: 9rem;
+  }
 }

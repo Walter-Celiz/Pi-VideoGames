@@ -5,13 +5,14 @@ import axios from "axios";
 export function getVideoGames() {
   return async function (dispatch) {
     try {
-      let videoGames = await axios.get("/videogames");
+      let videoGames = await axios.get("http://localhost:3001/videogames");
       return dispatch({
         type: "GET_VIDEOGAMES",
         payload: videoGames.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -19,13 +20,16 @@ export function getVideoGames() {
 export function getVideoGameName(name) {
   return async function (dispatch) {
     try {
-      let videoGameName = await axios.get(`/videogames?name=` + name);
+      let videoGameName = await axios.get(
+        `http://www.localhost:3001/videogames?name=` + name
+      );
       return dispatch({
         type: "GET_VIDEOGAME_NAME",
         payload: videoGameName.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -36,7 +40,8 @@ export function clearState() {
         type: "CLEAR_STATE",
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -44,13 +49,14 @@ export function clearState() {
 export default function getDetails(id) {
   return async function (dispatch) {
     try {
-      let videoGame = await axios.get(`/videogames/${id}`);
+      let videoGame = await axios.get(`http://localhost:3001/videogames/${id}`);
       return dispatch({
         type: "GET_DETAILS",
         payload: videoGame.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -58,13 +64,14 @@ export default function getDetails(id) {
 export function getGenres() {
   return async function (dispatch) {
     try {
-      let genres = await axios.get("/genres");
+      let genres = await axios.get("http://localhost:3001/genres");
       return dispatch({
         type: "GET_GENRES",
         payload: genres.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -72,13 +79,14 @@ export function getGenres() {
 export function getPlatforms() {
   return async function (dispatch) {
     try {
-      let platforms = await axios.get("/platforms");
+      let platforms = await axios.get("http://localhost:3001/platforms");
       return dispatch({
         type: "GET_PLATFORMS",
         payload: platforms.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -86,13 +94,17 @@ export function getPlatforms() {
 export function postVideoGame(body) {
   return async function (dispatch) {
     try {
-      let videoGame = await axios.post(`/videogames/create`, body);
+      let videoGame = await axios.post(
+        `http://localhost:3001/videogames/create`,
+        body
+      );
       return dispatch({
         type: "POST_VIDEOGAME",
         payload: videoGame.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
+      // console.log(error);
     }
   };
 }
@@ -104,7 +116,8 @@ export function filterGenre(payload) {
       payload,
     };
   } catch (error) {
-    console.log(error);
+    return error;
+    // console.log(error);
   }
 }
 
@@ -115,7 +128,8 @@ export function filterCreated(payload) {
       payload,
     };
   } catch (error) {
-    console.log(error);
+    return error;
+    // console.log(error);
   }
 }
 
@@ -126,7 +140,8 @@ export function orderName(payload) {
       payload,
     };
   } catch (error) {
-    console.log(error);
+    return error;
+    // console.log(error);
   }
 }
 
@@ -137,6 +152,7 @@ export function orderRating(payload) {
       payload,
     };
   } catch (error) {
-    console.log();
+    return error;
+    // console.log();
   }
 }

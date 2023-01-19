@@ -1,39 +1,77 @@
 @font-face {
-    font-family: BlenderProBold;
-    src: url(../utils/fonts/BlenderProBold.otf);
+  font-family: BlenderProBold;
+  src: url(../utils/fonts/BlenderProBold.otf);
 }
 
 .searchBar {
-    margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .searchBar__input {
-    background: transparent;
-    color: rgb(255, 242, 1);
-    font-family: BlenderProBold;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    border-top: 1px solid rgb(255, 242, 1);
-    border-bottom: 1px solid rgb(255, 242, 1);
-    border-left: 1px solid rgb(255, 242, 1);
-    border-right: transparent;
-    border-radius: 10px 0 0 10px;
-    padding-left: 1rem;
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 1/2;
+
+  background: transparent;
+  color: rgb(255, 242, 1);
+  font-family: BlenderProBold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border-top: 1px solid rgb(255, 242, 1);
+  border-bottom: 1px solid rgb(255, 242, 1);
+  border-left: 1px solid rgb(255, 242, 1);
+  border-right: transparent;
+  border-radius: 10px 0 0 10px;
+  padding-left: 1rem;
+}
+
+.searchBar__btn {
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-left: 13rem;
+  margin-top: -1px;
+  background: transparent;
+  color: rgb(255, 242, 1);
+  font-size: 1.1rem;
+  border-top: 1px solid rgb(255, 242, 1);
+  border-bottom: 1px solid rgb(255, 242, 1);
+  border-right: 1px solid rgb(255, 242, 1);
+  border-left: transparent;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  justify-items: center;
+  align-items: center;
 }
 
 .searchBar__input:focus-visible {
-    outline: rgb(255, 242, 1);
+  outline: rgb(255, 242, 1);
 }
 
-.searchBar__input2 {
-    background: transparent;
-    color: rgb(255, 242, 1);
-    font-family: BlenderProBold;
-    font-size: 1.1rem;
-    border-top: 1px solid rgb(255, 242, 1);
-    border-bottom: 1px solid rgb(255, 242, 1);
-    border-right: 1px solid rgb(255, 242, 1);
-    border-left: transparent;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
+@media (min-width: 768px) {
+  .searchBar__input,
+  .searchBar__btn {
+    height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .searchBar__input {
+    height: 2.5rem;
+    margin-right: 3rem;
+    width: 210px;
+  }
+  .searchBar__btn {
+    height: 2.6rem;
+    margin-left: 12rem;
+    font-size: 1.4rem;
+    margin-bottom: -0.1rem;
+    margin-top: -0.1rem;
+    padding-right: 0.5rem;
+  }
 }
