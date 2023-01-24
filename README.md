@@ -83,7 +83,7 @@ Crear una Aplicación web donde se puedan encontrar diferentes tipos de videojue
 
 
 ```
-API_KEY=tuApiKey (https://spoonacular.com](https://rawg.io/apidocs))
+API_KEY=tuApiKey (https://rawg.io/apidocs)
 DB_HOST=localhost
 DB_USER=tuUsuarioDePostgres
 DB_PASSWORD=passwordDePostgres
