@@ -5,6 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store/index";
+import axios from "axios";
+
+/* deploy */ axios.defaults.baseURL =
+  "https://pi-videogames-backend-walterceliz.vercel.app/";
+// /* local */ axios.defaults.baseURL = "http:localhost:3001/";
 
 ReactDOM.render(
   <Provider store={store}>
