@@ -5,10 +5,9 @@ import "../styles/cardsGroup.css";
 export default function CardsGroup({ currentVideoGames }) {
   return (
     <div className="cardsGroup">
-      {currentVideoGames?.map((videoGame) => (
-        <div className="cardsContainer">
+      {currentVideoGames?.map((videoGame, i) => (
+        <div className="cardsContainer" key={i}>
           <Card
-            key={videoGame.id}
             id={videoGame.id}
             background_image={videoGame.background_image}
             name={videoGame.name}
