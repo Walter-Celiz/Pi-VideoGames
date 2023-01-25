@@ -94,7 +94,7 @@ const getVideogames = async (req, res) => {
       res.send(finder(Cache, name));
     }
   } catch (error) {
-    res.send(error);
+    return error;
   }
 };
 
