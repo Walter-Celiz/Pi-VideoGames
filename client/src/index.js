@@ -5,10 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store/index";
-import axios from "axios";
 
-// axios.defaults.baseURL = "https://pi-videogames-backend-walterceliz.vercel.app/";
-axios.defaults.baseURL = "http://localhost:3001/";
+import axios from "axios";
+axios.defaults.baseURL = "https://videogames-backend.vercel.app/";
+// axios.defaults.baseURL = "http://localhost:3001/";
 
 ReactDOM.render(
   <Provider store={store}>
